@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */; };
+		EF18D9112BDF3CBE005E2670 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9102BDF3CBE005E2670 /* ContentView.swift */; };
+		EF18D9132BDF3CBF005E2670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF18D9122BDF3CBF005E2670 /* Assets.xcassets */; };
+		EF18D9162BDF3CBF005E2670 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF18D9152BDF3CBF005E2670 /* Preview Assets.xcassets */; };
+		EF18D9202BDF3CBF005E2670 /* talktifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D91F2BDF3CBF005E2670 /* talktifyTests.swift */; };
+		EF18D92A2BDF3CBF005E2670 /* talktifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9292BDF3CBF005E2670 /* talktifyUITests.swift */; };
+		EF18D92C2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D92B2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF18D91C2BDF3CBF005E2670 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF18D9032BDF3CBE005E2670 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF18D90A2BDF3CBE005E2670;
+			remoteInfo = talktify;
+		};
+		EF18D9262BDF3CBF005E2670 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF18D9032BDF3CBE005E2670 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF18D90A2BDF3CBE005E2670;
+			remoteInfo = talktify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF18D90B2BDF3CBE005E2670 /* talktify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talktify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyApp.swift; sourceTree = "<group>"; };
+		EF18D9102BDF3CBE005E2670 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EF18D9122BDF3CBF005E2670 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF18D9152BDF3CBF005E2670 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EF18D91B2BDF3CBF005E2670 /* talktifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talktifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF18D91F2BDF3CBF005E2670 /* talktifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyTests.swift; sourceTree = "<group>"; };
+		EF18D9252BDF3CBF005E2670 /* talktifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talktifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF18D9292BDF3CBF005E2670 /* talktifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyUITests.swift; sourceTree = "<group>"; };
+		EF18D92B2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF18D9082BDF3CBE005E2670 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF18D9182BDF3CBF005E2670 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF18D9222BDF3CBF005E2670 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF18D9022BDF3CBE005E2670 = {
+			isa = PBXGroup;
+			children = (
+				EF18D90D2BDF3CBE005E2670 /* talktify */,
+				EF18D91E2BDF3CBF005E2670 /* talktifyTests */,
+				EF18D9282BDF3CBF005E2670 /* talktifyUITests */,
+				EF18D90C2BDF3CBE005E2670 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF18D90C2BDF3CBE005E2670 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF18D90B2BDF3CBE005E2670 /* talktify.app */,
+				EF18D91B2BDF3CBF005E2670 /* talktifyTests.xctest */,
+				EF18D9252BDF3CBF005E2670 /* talktifyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF18D90D2BDF3CBE005E2670 /* talktify */ = {
+			isa = PBXGroup;
+			children = (
+				EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */,
+				EF18D9102BDF3CBE005E2670 /* ContentView.swift */,
+				EF18D9122BDF3CBF005E2670 /* Assets.xcassets */,
+				EF18D9142BDF3CBF005E2670 /* Preview Content */,
+			);
+			path = talktify;
+			sourceTree = "<group>";
+		};
+		EF18D9142BDF3CBF005E2670 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EF18D9152BDF3CBF005E2670 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF18D91E2BDF3CBF005E2670 /* talktifyTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF18D91F2BDF3CBF005E2670 /* talktifyTests.swift */,
+			);
+			path = talktifyTests;
+			sourceTree = "<group>";
+		};
+		EF18D9282BDF3CBF005E2670 /* talktifyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EF18D9292BDF3CBF005E2670 /* talktifyUITests.swift */,
+				EF18D92B2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift */,
+			);
+			path = talktifyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF18D90A2BDF3CBE005E2670 /* talktify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF18D92F2BDF3CBF005E2670 /* Build configuration list for PBXNativeTarget "talktify" */;
+			buildPhases = (
+				EF18D9072BDF3CBE005E2670 /* Sources */,
+				EF18D9082BDF3CBE005E2670 /* Frameworks */,
+				EF18D9092BDF3CBE005E2670 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = talktify;
+			productName = talktify;
+			productReference = EF18D90B2BDF3CBE005E2670 /* talktify.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF18D91A2BDF3CBF005E2670 /* talktifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF18D9322BDF3CBF005E2670 /* Build configuration list for PBXNativeTarget "talktifyTests" */;
+			buildPhases = (
+				EF18D9172BDF3CBF005E2670 /* Sources */,
+				EF18D9182BDF3CBF005E2670 /* Frameworks */,
+				EF18D9192BDF3CBF005E2670 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF18D91D2BDF3CBF005E2670 /* PBXTargetDependency */,
+			);
+			name = talktifyTests;
+			productName = talktifyTests;
+			productReference = EF18D91B2BDF3CBF005E2670 /* talktifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EF18D9242BDF3CBF005E2670 /* talktifyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF18D9352BDF3CBF005E2670 /* Build configuration list for PBXNativeTarget "talktifyUITests" */;
+			buildPhases = (
+				EF18D9212BDF3CBF005E2670 /* Sources */,
+				EF18D9222BDF3CBF005E2670 /* Frameworks */,
+				EF18D9232BDF3CBF005E2670 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF18D9272BDF3CBF005E2670 /* PBXTargetDependency */,
+			);
+			name = talktifyUITests;
+			productName = talktifyUITests;
+			productReference = EF18D9252BDF3CBF005E2670 /* talktifyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF18D9032BDF3CBE005E2670 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					EF18D90A2BDF3CBE005E2670 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					EF18D91A2BDF3CBF005E2670 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = EF18D90A2BDF3CBE005E2670;
+					};
+					EF18D9242BDF3CBF005E2670 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = EF18D90A2BDF3CBE005E2670;
+					};
+				};
+			};
+			buildConfigurationList = EF18D9062BDF3CBE005E2670 /* Build configuration list for PBXProject "talktify" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF18D9022BDF3CBE005E2670;
+			productRefGroup = EF18D90C2BDF3CBE005E2670 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF18D90A2BDF3CBE005E2670 /* talktify */,
+				EF18D91A2BDF3CBF005E2670 /* talktifyTests */,
+				EF18D9242BDF3CBF005E2670 /* talktifyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF18D9092BDF3CBE005E2670 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF18D9162BDF3CBF005E2670 /* Preview Assets.xcassets in Resources */,
+				EF18D9132BDF3CBF005E2670 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF18D9192BDF3CBF005E2670 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF18D9232BDF3CBF005E2670 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF18D9072BDF3CBE005E2670 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF18D9112BDF3CBE005E2670 /* ContentView.swift in Sources */,
+				EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF18D9172BDF3CBF005E2670 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF18D9202BDF3CBF005E2670 /* talktifyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF18D9212BDF3CBF005E2670 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF18D92C2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift in Sources */,
+				EF18D92A2BDF3CBF005E2670 /* talktifyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF18D91D2BDF3CBF005E2670 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF18D90A2BDF3CBE005E2670 /* talktify */;
+			targetProxy = EF18D91C2BDF3CBF005E2670 /* PBXContainerItemProxy */;
+		};
+		EF18D9272BDF3CBF005E2670 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF18D90A2BDF3CBE005E2670 /* talktify */;
+			targetProxy = EF18D9262BDF3CBF005E2670 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EF18D92D2BDF3CBF005E2670 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF18D92E2BDF3CBF005E2670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF18D9302BDF3CBF005E2670 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF18D9312BDF3CBF005E2670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EF18D9332BDF3CBF005E2670 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/talktify.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/talktify";
+			};
+			name = Debug;
+		};
+		EF18D9342BDF3CBF005E2670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/talktify.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/talktify";
+			};
+			name = Release;
+		};
+		EF18D9362BDF3CBF005E2670 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = talktify;
+			};
+			name = Debug;
+		};
+		EF18D9372BDF3CBF005E2670 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = talktify;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF18D9062BDF3CBE005E2670 /* Build configuration list for PBXProject "talktify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF18D92D2BDF3CBF005E2670 /* Debug */,
+				EF18D92E2BDF3CBF005E2670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF18D92F2BDF3CBF005E2670 /* Build configuration list for PBXNativeTarget "talktify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF18D9302BDF3CBF005E2670 /* Debug */,
+				EF18D9312BDF3CBF005E2670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF18D9322BDF3CBF005E2670 /* Build configuration list for PBXNativeTarget "talktifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF18D9332BDF3CBF005E2670 /* Debug */,
+				EF18D9342BDF3CBF005E2670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF18D9352BDF3CBF005E2670 /* Build configuration list for PBXNativeTarget "talktifyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF18D9362BDF3CBF005E2670 /* Debug */,
+				EF18D9372BDF3CBF005E2670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF18D9032BDF3CBE005E2670 /* Project object */;
+}
