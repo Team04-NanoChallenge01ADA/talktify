@@ -35,7 +35,7 @@ struct CallView: View {
                         Circle()
                             .foregroundStyle(.white)
                             .frame(width: 250, height: 250)
-                            
+                        
                         Text("👨️")
                             .font(.system(size: 150))
                     }
@@ -44,7 +44,7 @@ struct CallView: View {
                 Text(speechRecognition.recognizedText ?? "-").offset(CGSize(width: 0, height: 100))
                 
                 Text(previousRecognizedText == speechRecognition.recognizedText ? "SAME" : "NOT SAME").offset(CGSize(width: 0, height: 75))
-                    
+                
                 
                 HStack(spacing: 30){
                     CallButtonComponent(
@@ -59,7 +59,9 @@ struct CallView: View {
                     
                     CallButtonComponent(
                         action: {
-                            VoiceController(audioPlayer: $audioPlayer).speechToText(text: "Indonesia banget ga sih")
+                            VoiceController(audioPlayer: $audioPlayer).speechToText(
+                                text: "Indonesia banget ga"
+                            )
                         },
                         isActive: true,
                         activeIcon: "phone.down.fill",
@@ -85,20 +87,21 @@ struct CallView: View {
                 height: geometry.size.height)
         }.background(.blue400)
             .onAppear(){
-//                speechRecognition.start()
+                print(AIModel.sharedInstance().initialPrompt())
+                //                speechRecognition.start()
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: true){time in
                     callTimer += 1
                 }
                 
                 Timer.scheduledTimer(withTimeInterval: 2, repeats: true){time in
-//                    print(speechRecognition.recognizedText ?? "-")
+                    //                    print(speechRecognition.recognizedText ?? "-")
                     if speechRecognition.recognizedText == previousRecognizedText && !isProcessing {
-                       
+                        
                     }
                     
                     previousRecognizedText = speechRecognition.recognizedText ?? ""
                 }
-            }
+            }.navigationBarBackButtonHidden()
     }
 }
 
