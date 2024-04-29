@@ -10,6 +10,8 @@
 		460C10CD2BDF81AE000AFF12 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C10CC2BDF81AE000AFF12 /* GenderView.swift */; };
 		460C10D32BDFAC83000AFF12 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C10D22BDFAC83000AFF12 /* AIModel.swift */; };
 		D94B56E22BDF881F003FFA6E /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B56E12BDF881F003FFA6E /* PersonalityView.swift */; };
+		D94B57022BDFFF4D003FFA6E /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = D94B57012BDFFF4D003FFA6E /* OpenAISwift */; };
+		D94B57042BDFFF60003FFA6E /* OpenAICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B57032BDFFF60003FFA6E /* OpenAICaller.swift */; };
 		EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */; };
 		EF18D9132BDF3CBF005E2670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF18D9122BDF3CBF005E2670 /* Assets.xcassets */; };
 		EF18D9162BDF3CBF005E2670 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF18D9152BDF3CBF005E2670 /* Preview Assets.xcassets */; };
@@ -43,6 +45,7 @@
 		460C10CC2BDF81AE000AFF12 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		460C10D22BDFAC83000AFF12 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
 		D94B56E12BDF881F003FFA6E /* PersonalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityView.swift; sourceTree = "<group>"; };
+		D94B57032BDFFF60003FFA6E /* OpenAICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICaller.swift; sourceTree = "<group>"; };
 		EF18D90B2BDF3CBE005E2670 /* talktify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talktify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyApp.swift; sourceTree = "<group>"; };
 		EF18D9122BDF3CBF005E2670 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D94B57022BDFFF4D003FFA6E /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +176,7 @@
 		EF18D9482BDF8820005E2670 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D94B57032BDFFF60003FFA6E /* OpenAICaller.swift */,
 				EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */,
 			);
 			path = Utils;
@@ -201,6 +206,9 @@
 			dependencies = (
 			);
 			name = talktify;
+			packageProductDependencies = (
+				D94B57012BDFFF4D003FFA6E /* OpenAISwift */,
+			);
 			productName = talktify;
 			productReference = EF18D90B2BDF3CBE005E2670 /* talktify.app */;
 			productType = "com.apple.product-type.application";
@@ -273,6 +281,9 @@
 				Base,
 			);
 			mainGroup = EF18D9022BDF3CBE005E2670;
+			packageReferences = (
+				D94B57002BDFFF4D003FFA6E /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+			);
 			productRefGroup = EF18D90C2BDF3CBE005E2670 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -317,6 +328,7 @@
 			files = (
 				460C10D32BDFAC83000AFF12 /* AIModel.swift in Sources */,
 				EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */,
+				D94B57042BDFFF60003FFA6E /* OpenAICaller.swift in Sources */,
 				EF6DAEC42BDFF5C200FD806D /* VoiceController.swift in Sources */,
 				EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */,
 				D94B56E22BDF881F003FFA6E /* PersonalityView.swift in Sources */,
@@ -652,6 +664,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D94B57002BDFFF4D003FFA6E /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D94B57012BDFFF4D003FFA6E /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D94B57002BDFFF4D003FFA6E /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF18D9032BDF3CBE005E2670 /* Project object */;
 }
