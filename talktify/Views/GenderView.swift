@@ -19,7 +19,7 @@ struct GenderView: View {
             VStack {
                 Spacer()
                 
-                HStack{
+                HStack(spacing: 20){
                     Button(action: {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             self.isClickedMan.toggle()
@@ -28,7 +28,7 @@ struct GenderView: View {
                     }) {
                         ZStack {
                             Circle()
-                                .fill(isClickedMan ? Color.white : Color.blue)
+                                .fill(isClickedMan ? .white : .blue200)
                                 .frame(width: isClickedMan ? 150 : 130, height: isClickedMan ? 150 : 130)
                                 .opacity(isClickedWoman ? 0 : 1.0)
                             Text("👨️")
@@ -45,7 +45,7 @@ struct GenderView: View {
                     }) {
                         ZStack {
                             Circle()
-                                .fill(isClickedWoman ? Color.white : Color.pink)
+                                .fill(isClickedWoman ? .white : .pink200)
                                 .frame(width: isClickedWoman ? 150 : 130, height: isClickedWoman ? 150 : 130)
                                 .opacity(isClickedMan ? 0 : 1.0)
                             Text("👩")
@@ -66,16 +66,16 @@ struct GenderView: View {
                         .foregroundColor(buttonForegroundColor())
                         .background(buttonColor())
                         .cornerRadius(45)
-                }.padding(.bottom)
+                }.padding(.bottom).disabled(!(isClickedMan || isClickedWoman))
             }
         }
     }
     
     func backgroundColor() -> some View {
         if isClickedMan {
-            Color.blue.edgesIgnoringSafeArea(.all)
+            Color.blue400.edgesIgnoringSafeArea(.all)
         } else if isClickedWoman {
-            Color.pink.edgesIgnoringSafeArea(.all)
+            Color.pink400.edgesIgnoringSafeArea(.all)
         } else {
             Color.white.edgesIgnoringSafeArea(.all)
         }
@@ -85,15 +85,15 @@ struct GenderView: View {
         if isClickedMan || isClickedWoman{
             return Color.white
         } else {
-            return Color.gray
+            return Color.grayQuarternary
         }
     }
     
     func buttonForegroundColor() -> Color{
         if isClickedMan {
-            return Color.blue
+            return Color.blue400
         } else if isClickedWoman {
-            return Color.pink
+            return Color.pink400
         } else {
             return Color.white
         }
