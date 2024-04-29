@@ -41,7 +41,7 @@ struct AIModel: Encodable{
     
     func initialPrompt(){
         
-        var prompt = "\(gender.rawValue) \(personality.rawValue) \(interest.rawValue)";
+//        var prompt = "\(gender.rawValue) \(personality.rawValue) \(interest.rawValue)";
         
 //        let jsonData = try JSONEncoder().encode(self)
 //        guard let jsonString = String(data: jsonData, encoding: .utf8) else{
