@@ -23,13 +23,13 @@ struct CallButtonComponent: View {
         Button(action: action){
             ZStack{
                 Circle().frame(
-                    width: 100,
-                    height: 100
+                    width: 80,
+                    height: 80
                 ).foregroundStyle(isActive ? activeBackground : inactiveBackground)
                 
                 Image(systemName: isActive ? activeIcon : inActiveIcon)
                     .foregroundStyle(isActive ? .red : .white)
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .font(.system(size: 30))
             }
         }
     }

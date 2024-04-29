@@ -16,6 +16,7 @@
 		EF18D92C2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D92B2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift */; };
 		EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D93A2BDF6956005E2670 /* CallView.swift */; };
 		EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */; };
+		EF18D94A2BDF882E005E2670 /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		EF18D92B2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EF18D93A2BDF6956005E2670 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButtonComponent.swift; sourceTree = "<group>"; };
+		EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */,
+				EF18D9482BDF8820005E2670 /* Utils */,
 				EF18D9392BDF694D005E2670 /* Models */,
 				EF18D9382BDF6947005E2670 /* Views */,
 				EF18D9122BDF3CBF005E2670 /* Assets.xcassets */,
@@ -155,6 +158,14 @@
 				EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		EF18D9482BDF8820005E2670 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +301,7 @@
 				EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */,
 				EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */,
 				EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */,
+				EF18D94A2BDF882E005E2670 /* SpeechRecognition.swift in Sources */,
 				460C10CD2BDF81AE000AFF12 /* GenderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,8 +466,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
+				DEVELOPMENT_TEAM = DP3K3GBL6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want to hear you :D";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "I want to talk with you :>";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -482,8 +497,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
+				DEVELOPMENT_TEAM = DP3K3GBL6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want to hear you :D";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "I want to talk with you :>";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
