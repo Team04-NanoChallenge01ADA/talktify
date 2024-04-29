@@ -62,7 +62,7 @@ struct CallView: View {
             }.frame(
                 width: geometry.size.width,
                 height: geometry.size.height)
-        }.background(.primaryBlue)
+        }.background(.blue400)
             .onAppear(){
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: true){time in
                     callTimer += 1
