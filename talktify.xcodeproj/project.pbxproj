@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */; };
-		EF18D9112BDF3CBE005E2670 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9102BDF3CBE005E2670 /* ContentView.swift */; };
 		EF18D9132BDF3CBF005E2670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF18D9122BDF3CBF005E2670 /* Assets.xcassets */; };
 		EF18D9162BDF3CBF005E2670 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF18D9152BDF3CBF005E2670 /* Preview Assets.xcassets */; };
 		EF18D9202BDF3CBF005E2670 /* talktifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D91F2BDF3CBF005E2670 /* talktifyTests.swift */; };
 		EF18D92A2BDF3CBF005E2670 /* talktifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9292BDF3CBF005E2670 /* talktifyUITests.swift */; };
 		EF18D92C2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D92B2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift */; };
+		EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D93A2BDF6956005E2670 /* CallView.swift */; };
+		EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		EF18D90B2BDF3CBE005E2670 /* talktify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talktify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyApp.swift; sourceTree = "<group>"; };
-		EF18D9102BDF3CBE005E2670 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EF18D9122BDF3CBF005E2670 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF18D9152BDF3CBF005E2670 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF18D91B2BDF3CBF005E2670 /* talktifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talktifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +44,8 @@
 		EF18D9252BDF3CBF005E2670 /* talktifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talktifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF18D9292BDF3CBF005E2670 /* talktifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyUITests.swift; sourceTree = "<group>"; };
 		EF18D92B2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EF18D93A2BDF6956005E2670 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
+		EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButtonComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */,
-				EF18D9102BDF3CBE005E2670 /* ContentView.swift */,
+				EF18D9392BDF694D005E2670 /* Models */,
+				EF18D9382BDF6947005E2670 /* Views */,
 				EF18D9122BDF3CBF005E2670 /* Assets.xcassets */,
 				EF18D9142BDF3CBF005E2670 /* Preview Content */,
 			);
@@ -125,6 +128,30 @@
 				EF18D92B2BDF3CBF005E2670 /* talktifyUITestsLaunchTests.swift */,
 			);
 			path = talktifyUITests;
+			sourceTree = "<group>";
+		};
+		EF18D9382BDF6947005E2670 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF18D9442BDF6B20005E2670 /* Component */,
+				EF18D93A2BDF6956005E2670 /* CallView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF18D9392BDF694D005E2670 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EF18D9442BDF6B20005E2670 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF18D9112BDF3CBE005E2670 /* ContentView.swift in Sources */,
+				EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */,
+				EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */,
 				EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
