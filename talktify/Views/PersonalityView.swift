@@ -1,10 +1,3 @@
-//
-//  PersonalityView.swift
-//  talktify
-//
-//  Created by Ages on 29/04/24.
-//
-
 import SwiftUI
 
 struct PersonalityView: View {
@@ -31,26 +24,33 @@ struct PersonalityView: View {
                 ForEach(0..<emotions.count, id: \.self) { index in
                     Text(emotions[index])
                         .tag(index)
+                        
                     
                 }
             }
-            .pickerStyle(.segmented)
-            .padding(.bottom, 50)
-            .scaledToFill()
+            .pickerStyle(SegmentedPickerStyle())
+            .scaledToFit()
+            .scaleEffect(CGSize(width: 1.2, height: 1.2))
+            .padding(20)
+            
             
             LazyVGrid(columns: flexibleColumn, spacing: 20) {
                 ForEach(interest.indices, id: \.self) { index in
                                 
-                    Text(String(interest[index]))
-                        .frame(width: 80, height: 50, alignment: .center)
-                        .background(selectedInterest == index ? Color.white : Color(UIColor.secondarySystemBackground))
-                        .shadow(color: selectedInterest == index ? Color.black.opacity(0.3) : Color.clear, radius: 5, x: 0, y: 2)
-                        .cornerRadius(50)
-                        .font(.title)
-                        .onTapGesture {
-                            selectedInterest = index
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 50)
+                            .frame(width: 90, height: 50, alignment: .center)
+                            .foregroundColor(selectedInterest == index ? Color(UIColor.systemBackground) : Color(UIColor.secondarySystemBackground))
+                            .shadow(color: selectedInterest == index ? Color.black.opacity(0.3) : Color.clear, radius: 5, x: 0, y: 2)
+                        
+                        Text(String(interest[index]))
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            .onTapGesture {
+                                selectedInterest = index
+                            }
                             
-                        }
+                    }
+                
                 }
             }
             Spacer()
@@ -77,6 +77,8 @@ struct PersonalityView: View {
 
         }.padding(50)
     }
+    
+
 }
 
 #Preview {
