@@ -19,6 +19,7 @@
 		EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D93A2BDF6956005E2670 /* CallView.swift */; };
 		EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */; };
 		EF18D94A2BDF882E005E2670 /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */; };
+		EF6DAEC42BDFF5C200FD806D /* VoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6DAEC32BDFF5C200FD806D /* VoiceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		EF18D93A2BDF6956005E2670 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButtonComponent.swift; sourceTree = "<group>"; };
 		EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
+		EF6DAEC32BDFF5C200FD806D /* VoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +114,10 @@
 		EF18D90D2BDF3CBE005E2670 /* talktify */ = {
 			isa = PBXGroup;
 			children = (
-				460C10D12BDFAC79000AFF12 /* Models */,
 				EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */,
 				EF18D9482BDF8820005E2670 /* Utils */,
+				460C10D12BDFAC79000AFF12 /* Models */,
+				EF6DAEC22BDFF5AC00FD806D /* Controller */,
 				EF18D9382BDF6947005E2670 /* Views */,
 				EF18D9122BDF3CBF005E2670 /* Assets.xcassets */,
 				EF18D9142BDF3CBF005E2670 /* Preview Content */,
@@ -172,6 +175,14 @@
 				EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		EF6DAEC22BDFF5AC00FD806D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EF6DAEC32BDFF5C200FD806D /* VoiceController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +317,7 @@
 			files = (
 				460C10D32BDFAC83000AFF12 /* AIModel.swift in Sources */,
 				EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */,
+				EF6DAEC42BDFF5C200FD806D /* VoiceController.swift in Sources */,
 				EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */,
 				D94B56E22BDF881F003FFA6E /* PersonalityView.swift in Sources */,
 				EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */,

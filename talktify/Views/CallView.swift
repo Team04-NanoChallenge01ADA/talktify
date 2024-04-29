@@ -13,9 +13,10 @@ struct CallView: View {
     @State private var callTimer: Int = 0
     @State private var isMicrophoneMuted: Bool = false;
     @State private var isLoudSpeaker: Bool = true;
-    @State private var audioPlayer: AVAudioPlayer?
 
     @State private var isProcessing: Bool = false;
+    @State private var audioPlayer: AVAudioPlayer?
+
 
     @State private var previousRecognizedText: String = ""
     @ObservedObject private var speechRecognition = SpeechRecognition()
@@ -58,7 +59,7 @@ struct CallView: View {
                     
                     CallButtonComponent(
                         action: {
-                            fetchAudioFromAPI()
+                            VoiceController(audioPlayer: $audioPlayer).speechToText(text: "Indonesia banget ga sih")
                         },
                         isActive: true,
                         activeIcon: "phone.down.fill",
@@ -84,13 +85,13 @@ struct CallView: View {
                 height: geometry.size.height)
         }.background(.blue400)
             .onAppear(){
-                speechRecognition.start()
+//                speechRecognition.start()
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: true){time in
                     callTimer += 1
                 }
                 
                 Timer.scheduledTimer(withTimeInterval: 2, repeats: true){time in
-                    print(speechRecognition.recognizedText ?? "-")
+//                    print(speechRecognition.recognizedText ?? "-")
                     if speechRecognition.recognizedText == previousRecognizedText && !isProcessing {
                        
                     }
@@ -98,76 +99,6 @@ struct CallView: View {
                     previousRecognizedText = speechRecognition.recognizedText ?? ""
                 }
             }
-    }
-    
-    func fetchAudioFromAPI(){
-        isProcessing = true
-        
-        // API Endpoint
-        let urlString = "https://api.elevenlabs.io/v1/text-to-speech/XB0fDUnXU5powFXDhCwa"
-        
-        // Request Body
-        let parameters = [
-            "model_id": "eleven_multilingual_v2",
-            "text": "indonesia banget ga sih"
-        ]
-        
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
-        }
-        
-        // Create URLRequest
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        // Set Headers
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("485df26dc9fb10b96844f77b1eba720b", forHTTPHeaderField: "xi-api-key")
-        
-        // Add Parameters
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-        } catch let error {
-            print("Error serializing JSON:", error)
-            return
-        }
-        
-        // Create URLSession
-        let session = URLSession.shared
-        
-        // Create Data Task
-        let task = session.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                print("Error:", error)
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                return
-            }
-            
-            // Convert Data to String
-            if let responseString = String(data: data, encoding: .utf8) {
-                print("Response:", responseString)
-            }
-        }
-        
-        // Resume Task
-        task.resume()
-        
-    }
-    
-    
-    func playAudio(data: Data){
-        do {
-            self.audioPlayer = try AVAudioPlayer(data: data)
-            self.audioPlayer?.prepareToPlay()
-            self.audioPlayer?.play()
-        } catch {
-            print("Failed to play audio:", error.localizedDescription)
-        }
     }
 }
 
