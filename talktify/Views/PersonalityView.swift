@@ -26,6 +26,7 @@ struct PersonalityView: View {
        
 
     var body: some View {
+        Spacer().frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
         VStack {
             Picker("Emotions?", selection: $selectedEmotions) {
                 ForEach(0..<emotions.count, id: \.self) { index in
@@ -56,26 +57,19 @@ struct PersonalityView: View {
             Spacer()
             //Text("Emotions = \(selectedEmotions) \n Interest = \(selectedInterest)")
             Button(action: {
-                
-            }, label: {
-                ZStack{
-                    Rectangle()
-                      .foregroundColor(.clear)
-                      .frame(width: 275, height: 70)
-                      .background(Color(red: 0.2, green: 0.78, blue: 0.35))
-                      .cornerRadius(40)
-                    Image(systemName: "phone.fill")
-                        .resizable()
-                        .frame(width: 35, height: 35)
-                        .foregroundColor(.white)
-                }
-                
-                
-            })
+
+            }) {
+                Image(systemName: "phone.fill")
+                    .font(.system(size: 40).bold())
+                    .frame(width: 275, height: 70)
+                    .foregroundColor(.white)
+                    .background(Color(red: 0.2, green: 0.78, blue: 0.35))
+                    .cornerRadius(45)
+            }.padding(.bottom)
 
             
 
-        }.padding(50)
+        }.padding(.horizontal, 50)
     }
 }
 
