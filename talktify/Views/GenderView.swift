@@ -28,7 +28,7 @@ struct GenderView: View {
                     }) {
                         ZStack {
                             Circle()
-                                .fill(isClickedMan ? Color.white : Color.blue)
+                                .fill(isClickedMan ? Color.white : .blue)
                                 .frame(width: isClickedMan ? 150 : 130, height: isClickedMan ? 150 : 130)
                                 .opacity(isClickedWoman ? 0 : 1.0)
                             Text("👨️")
