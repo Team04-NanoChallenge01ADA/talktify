@@ -35,6 +35,8 @@ struct VoiceController {
         request.setValue(apiKey, forHTTPHeaderField: "xi-api-key")
 
         let task = URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
+            print("Masuk")
+            
             if let error = error {
                 print("Error:", error)
                 return
@@ -44,7 +46,7 @@ struct VoiceController {
                 print("No data received")
                 return
             }
-
+            print(response)
             print("Talk..")
             playAudio(data: data)
         }
