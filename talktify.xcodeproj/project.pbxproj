@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		460C10CD2BDF81AE000AFF12 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C10CC2BDF81AE000AFF12 /* GenderView.swift */; };
+		D94B56E22BDF881F003FFA6E /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B56E12BDF881F003FFA6E /* PersonalityView.swift */; };
 		EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */; };
 		EF18D9132BDF3CBF005E2670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF18D9122BDF3CBF005E2670 /* Assets.xcassets */; };
 		EF18D9162BDF3CBF005E2670 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF18D9152BDF3CBF005E2670 /* Preview Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		460C10CC2BDF81AE000AFF12 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		D94B56E12BDF881F003FFA6E /* PersonalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityView.swift; sourceTree = "<group>"; };
 		EF18D90B2BDF3CBE005E2670 /* talktify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talktify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talktifyApp.swift; sourceTree = "<group>"; };
 		EF18D9122BDF3CBF005E2670 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				EF18D9442BDF6B20005E2670 /* Component */,
 				EF18D93A2BDF6956005E2670 /* CallView.swift */,
 				460C10CC2BDF81AE000AFF12 /* GenderView.swift */,
+				D94B56E12BDF881F003FFA6E /* PersonalityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			files = (
 				EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */,
 				EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */,
+				D94B56E22BDF881F003FFA6E /* PersonalityView.swift in Sources */,
 				EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */,
 				460C10CD2BDF81AE000AFF12 /* GenderView.swift in Sources */,
 			);
