@@ -115,6 +115,7 @@ struct CallView: View {
                                 VoiceController(audioPlayer: $audioPlayer)
                                     .speechToText(text: response)
                                 speechRecognition.recognizedText = ""
+                                previousRecognizedText = ""
                                 isProcessing = false
                             }
                         }
