@@ -20,9 +20,8 @@ struct CallView: View {
 
     @State private var previousRecognizedText: String = ""
     @ObservedObject private var speechRecognition = SpeechRecognition()
+    @ObservedObject private var apiController: OpenAICaller = OpenAICaller()
 
-    
-    
     var body: some View {
         GeometryReader{geometry in
             ZStack{
@@ -36,15 +35,15 @@ struct CallView: View {
                             .foregroundStyle(.white)
                             .frame(width: 250, height: 250)
                         
-                        Text("👨️")
+                        Text(AIModel.sharedInstance().gender == AIGenderEnum.male ? "👨️" : "👩")
                             .font(.system(size: 150))
                     }
                 }.offset(CGSize(width: 0, height: -100))
                 
-                Text(speechRecognition.recognizedText ?? "-").offset(CGSize(width: 0, height: 100))
+//                Text(speechRecognition.recognizedText ?? "-").offset(CGSize(width: 0, height: 100))
                 
-                Text(previousRecognizedText == speechRecognition.recognizedText ? "SAME" : "NOT SAME").offset(CGSize(width: 0, height: 75))
-                
+//                Text(previousRecognizedText == speechRecognition.recognizedText ? "SAME" : "NOT SAME").offset(CGSize(width: 0, height: 75))
+//                
                 
                 HStack(spacing: 30){
                     CallButtonComponent(
@@ -85,23 +84,59 @@ struct CallView: View {
             }.frame(
                 width: geometry.size.width,
                 height: geometry.size.height)
-        }.background(.blue400)
+        }.background(backgroundColor())
             .onAppear(){
-                print(AIModel.sharedInstance().initialPrompt())
-                //                speechRecognition.start()
+                VoiceController(audioPlayer: $audioPlayer).speechToText(text: "Halo, namaku Rachel. Hobi aku adalah membaca buku dan mendengarkan musik. Nama kamu siapa?")
+//                apiController.send(text: AIModel.sharedInstance().initialPrompt()) { response in
+//                    print(response)
+//                    DispatchQueue.main.async {
+//                        print(response)
+//                        VoiceController(audioPlayer: $audioPlayer)
+//                            .speechToText(text: response)
+//                        isProcessing = false
+//                    }
+//                }
+//                speechRecognition.start()
+                
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: true){time in
                     callTimer += 1
                 }
                 
-                Timer.scheduledTimer(withTimeInterval: 2, repeats: true){time in
-                    //                    print(speechRecognition.recognizedText ?? "-")
-                    if speechRecognition.recognizedText == previousRecognizedText && !isProcessing {
-                        
+                Timer.scheduledTimer(withTimeInterval: 3, repeats: true){time in
+                    if speechRecognition.recognizedText == previousRecognizedText && !isProcessing && speechRecognition.recognizedText != "" {
+                        isProcessing = true
+                        apiController.send(text: speechRecognition.recognizedText!){ response in
+                            DispatchQueue.main.async {
+                                VoiceController(audioPlayer: $audioPlayer)
+                                    .speechToText(text: response)
+                                isProcessing = false
+                            }
+                        }
                     }
-                    
                     previousRecognizedText = speechRecognition.recognizedText ?? ""
                 }
             }.navigationBarBackButtonHidden()
+    }
+    
+    func backgroundColor() -> Color {
+        if AIModel.sharedInstance().gender == AIGenderEnum.male {
+            if AIModel.sharedInstance().personality == AIPersonalityEnum.calm {
+                return Color.blue100
+            } else if AIModel.sharedInstance().personality == AIPersonalityEnum.cheerful {
+                return Color.blue300
+            } else if AIModel.sharedInstance().personality == AIPersonalityEnum.energetic {
+                return Color.blue400
+            }
+        } else {
+            if AIModel.sharedInstance().personality == AIPersonalityEnum.calm {
+                return Color.pink100
+            } else if AIModel.sharedInstance().personality == AIPersonalityEnum.cheerful {
+                return Color.pink300
+            } else if AIModel.sharedInstance().personality == AIPersonalityEnum.energetic {
+                return Color.pink400
+            }
+        }
+        return Color.white
     }
 }
 

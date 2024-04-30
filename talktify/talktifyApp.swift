@@ -11,7 +11,7 @@ import SwiftUI
 struct talktifyApp: App {
     var body: some Scene {
         WindowGroup {
-            OpenAICaller()
+            GenderView()
         }
     }
 }

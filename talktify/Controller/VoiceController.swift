@@ -46,7 +46,7 @@ struct VoiceController {
                 print("No data received")
                 return
             }
-            print(response)
+            
             print("Talk..")
             playAudio(data: data)
         }
