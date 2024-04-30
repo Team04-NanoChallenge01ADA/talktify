@@ -57,8 +57,10 @@ class AIModel: Encodable{
     func initialPrompt()->String{
         if((gender == nil) || (personality == nil) || (interest == nil)){return ""}
         
-        let prompt = "Bayangkan kamu adalah seorang \(gender!.rawValue), kamu memiliki sifat \(personality!.rawValue) dan hobi mu seputar \(interest!.rawValue). Saat ini kamu akan memperkenalkan diri kepada seseorang. Cobalah untuk berbicara seperti teman, dan perkenalkanlah namamu serta tanya kembali nama lawan bicaramu. Cobalah untuk menjawab dengan singkat 15 - 20 kata";
+//        let prompt = "Bayangkan kamu adalah seorang \(gender!.rawValue), kamu memiliki sifat \(personality!.rawValue) dan hobi mu seputar \(interest!.rawValue). Saat ini kamu akan memperkenalkan diri kepada seseorang. Cobalah untuk berbicara seperti teman, dan perkenalkanlah namamu serta tanya kembali nama lawan bicaramu. Cobalah untuk menjawab dengan singkat 15 - 20 kata";
+//        
         
+        let prompt = "Image you are \(gender!.rawValue), you have \(personality!.rawValue) personality and your hobby is \(interest!.rawValue). Currently you need to introduce yourself to some people. Try to speak like a friend, and introduce your name and ask him/her name. Also just give us an output like 15-20 words"
         return prompt
 //        let jsonData = try JSONEncoder().encode(self)
 //        guard let jsonString = String(data: jsonData, encoding: .utf8) else{

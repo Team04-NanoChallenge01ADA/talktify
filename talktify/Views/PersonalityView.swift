@@ -5,9 +5,9 @@ struct PersonalityView: View {
     
     @State private var selectedEmotions: Int = 0
     @State private var selectedInterest: Int = 0
-    @State private var selectedLanguage: Int = 0
+    @State private var selectedLanguage: Int = 1
     var emotions = ["☺️", "😄", "🤣"]
-    var languages = ["🇮🇩", "🇺🇸"]
+    var languages = ["🇺🇸", "🇮🇩", "🇨🇳"]
     
     var interest: Array<(String,value: String)> = [
         ("💬","Apa saja"),
@@ -71,16 +71,17 @@ struct PersonalityView: View {
                     }
                 }
                 Spacer().frame(height: 50)
-//                Picker("Languages?", selection: $selectedLanguage) {
-//                    ForEach(0..<languages.count, id: \.self) { language in
-//                        Text(languages[language])
-//                            .tag(language)
-//                    }
-//                }
-//                .pickerStyle(DefaultPickerStyle())
-//                .background(Color(UIColor.secondarySystemBackground))
-//                .cornerRadius(5)
-//                .accentColor(.gray)
+                Picker("Languages?", selection: $selectedLanguage) {
+                    ForEach(0..<languages.count, id: \.self) { language in
+                        Text(languages[language])
+                            .tag(language)
+                    }
+                }
+                .pickerStyle(WheelPickerStyle())
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 100)
+                .background(Color(UIColor.secondarySystemBackground))
+                .cornerRadius(5)
+                .accentColor(.gray)
                 
                 Spacer()
                 //Text("Emotions = \(selectedEmotions) \n Interest = \(selectedInterest)")
