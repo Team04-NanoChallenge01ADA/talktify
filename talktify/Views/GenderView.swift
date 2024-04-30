@@ -12,63 +12,80 @@ struct GenderView: View {
     @State var isClickedWoman = false
     @State var isSubmitClicked = false
     
+    
     var body: some View {
-        ZStack {
-            backgroundColor()
-            
-            VStack {
-                Spacer()
+        NavigationStack {
+            ZStack {
+                backgroundColor()
                 
-                HStack(spacing: 20){
-                    Button(action: {
-                        withAnimation(.easeInOut(duration: 0.3)) {
-                            self.isClickedMan.toggle()
-                            isClickedWoman = false
+                VStack {
+                    Spacer()
+                    
+                    HStack(spacing: 20){
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                self.isClickedMan.toggle()
+                                isClickedWoman = false
+                            }
+                        }) {
+                            ZStack {
+                                Circle()
+                                    .fill(isClickedMan ? .white : .blue200)
+                                    .frame(width: isClickedMan ? 150 : 130, height: isClickedMan ? 150 : 130)
+                                    .opacity(isClickedWoman ? 0 : 1.0)
+                                Text("👨️")
+                                    .font(.system(size: isClickedMan ? 100 : 75))
+                                    .opacity(isClickedWoman ? 0.5 : 1.0)
+                            }
                         }
-                    }) {
-                        ZStack {
-                            Circle()
-                                .fill(isClickedMan ? .white : .blue200)
-                                .frame(width: isClickedMan ? 150 : 130, height: isClickedMan ? 150 : 130)
-                                .opacity(isClickedWoman ? 0 : 1.0)
-                            Text("👨️")
-                                .font(.system(size: isClickedMan ? 100 : 75))
-                                .opacity(isClickedWoman ? 0.5 : 1.0)
+                        
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                self.isClickedWoman.toggle()
+                                isClickedMan = false
+                            }
+                        }) {
+                            ZStack {
+                                Circle()
+                                    .fill(isClickedWoman ? .white : .pink200)
+                                    .frame(width: isClickedWoman ? 150 : 130, height: isClickedWoman ? 150 : 130)
+                                    .opacity(isClickedMan ? 0 : 1.0)
+                                Text("👩")
+                                    .font(.system(size: isClickedWoman ? 100 : 75))
+                                    .opacity(isClickedMan ? 0.5 : 1.0)
+                            }
                         }
                     }
                     
-                    Button(action: {
-                        withAnimation(.easeInOut(duration: 0.3)) {
-                            self.isClickedWoman.toggle()
-                            isClickedMan = false
+                    Spacer()
+                    
+                    ZStack{
+                        NavigationLink(destination: PersonalityView()){
+                            EmptyView()
+                        }.navigationDestination(isPresented: $isSubmitClicked) {
+                            PersonalityView().toolbarRole(.editor)
                         }
-                    }) {
-                        ZStack {
-                            Circle()
-                                .fill(isClickedWoman ? .white : .pink200)
-                                .frame(width: isClickedWoman ? 150 : 130, height: isClickedWoman ? 150 : 130)
-                                .opacity(isClickedMan ? 0 : 1.0)
-                            Text("👩")
-                                .font(.system(size: isClickedWoman ? 100 : 75))
-                                .opacity(isClickedMan ? 0.5 : 1.0)
-                        }
+                        
+
+                        Button(action: {
+                            isSubmitClicked.toggle()
+                            
+                            AIModel.sharedInstance().gender = isClickedMan
+                            ? AIGenderEnum.male
+                            : AIGenderEnum.female
+                        }) {
+                            Image(systemName: "arrow.forward")
+                                .font(.system(size: 40).bold())
+                                .frame(width: 275, height: 70)
+                                .foregroundColor(buttonForegroundColor())
+                                .background(buttonColor())
+                                .cornerRadius(45)
+                        }.padding(.bottom).disabled(!(isClickedMan || isClickedWoman))
                     }
+                    
                 }
-                
-                Spacer()
-                
-                Button(action: {
-                    isSubmitClicked.toggle()
-                }) {
-                    Image(systemName: "arrow.forward")
-                        .font(.system(size: 40).bold())
-                        .frame(width: 275, height: 70)
-                        .foregroundColor(buttonForegroundColor())
-                        .background(buttonColor())
-                        .cornerRadius(45)
-                }.padding(.bottom).disabled(!(isClickedMan || isClickedWoman))
             }
-        }
+        }.toolbar(.hidden)
     }
     
     func backgroundColor() -> some View {
