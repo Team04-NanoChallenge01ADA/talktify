@@ -7,9 +7,12 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 import AVFAudio
 
 struct CallView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var callTimer: Int = 0
     @State private var isMicrophoneMuted: Bool = false;
     @State private var isLoudSpeaker: Bool = true;
@@ -56,17 +59,18 @@ struct CallView: View {
                         activeBackground: .white,
                         inactiveBackground: .black.opacity(0.3))
                     
+                    
                     CallButtonComponent(
                         action: {
-                            VoiceController(audioPlayer: $audioPlayer).speechToText(
-                                text: "Indonesia banget ga sih"
-                            )
+                            endCallVibrate()
+                            self.presentationMode.wrappedValue.dismiss()
                         },
                         isActive: true,
                         activeIcon: "phone.down.fill",
                         inActiveIcon: "",
                         activeBackground: .white,
                         inactiveBackground: .white)
+
                     
                     CallButtonComponent(
                         action: {
@@ -86,16 +90,16 @@ struct CallView: View {
                 height: geometry.size.height)
         }.background(backgroundColor())
             .onAppear(){
-//                apiController.send(text: AIModel.sharedInstance().initialPrompt()) { response in
-//                    print(response)
-//                    DispatchQueue.main.async {
-//                        print(response)
-//                        VoiceController(audioPlayer: $audioPlayer)
-//                            .speechToText(text: response)
-//                        isProcessing = false
-//                    }
-//                }
-//                speechRecognition.start()
+                apiController.send(text: AIModel.sharedInstance().initialPrompt()) { response in
+                    print(response)
+                    DispatchQueue.main.async {
+                        print(response)
+                        VoiceController(audioPlayer: $audioPlayer)
+                            .speechToText(text: response)
+                        speechRecognition.start()
+                        isProcessing = false
+                    }
+                }
                 
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: true){time in
                     callTimer += 1
@@ -105,20 +109,24 @@ struct CallView: View {
                     print(isProcessing)
                     if speechRecognition.recognizedText == previousRecognizedText && !isProcessing && speechRecognition.recognizedText != "" {
                         
-//                        print(isProcessing)
-//                        isProcessing = true
-//                        apiController.send(text: speechRecognition.recognizedText!){ response in
-//                            DispatchQueue.main.async {
-//                                VoiceController(audioPlayer: $audioPlayer)
-//                                    .speechToText(text: response)
-//                                speechRecognition.recognizedText = ""
-//                                print("IN \(isProcessing)")
-//                            }
-//                        }
+                        isProcessing = true
+                        apiController.send(text: speechRecognition.recognizedText!){ response in
+                            DispatchQueue.main.async {
+                                VoiceController(audioPlayer: $audioPlayer)
+                                    .speechToText(text: response)
+                                speechRecognition.recognizedText = ""
+                                isProcessing = false
+                            }
+                        }
                     }
                     previousRecognizedText = speechRecognition.recognizedText ?? ""
                 }
             }.navigationBarBackButtonHidden()
+    }
+    
+    func endCallVibrate(){
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
     
     func backgroundColor() -> Color {
