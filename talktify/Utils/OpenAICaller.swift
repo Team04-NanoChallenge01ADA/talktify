@@ -1,74 +1,99 @@
 import SwiftUI
-import OpenAISwift
 
-final class ViewModel: ObservableObject{
-    init(){}
+final class ViewModel: ObservableObject {
+    private let apiKey: String
+    private let baseURL = URL(string: "https://api.openai.com/v1/")!
     
-    private var client: OpenAISwift?
-    
-    // func untuk setup API Key
-    func setupOpenAI() { // Masukin key API
-        let config: OpenAISwift.Config = .makeDefaultOpenAI(apiKey: "sk-proj-xdlBkI0t1fFv9qs9RKrpT3BlbkFJxXTcS5hxeTnltTW9WT8Y")
-        client = OpenAISwift(config: config)
+    init(apiKey: String) {
+        self.apiKey = apiKey
     }
     
-    // func untuk send string ke model
-    func send(text: String, completion: @escaping (String) -> Void){
-        client?.sendCompletion(with: text, completionHandler:{ result in
-            switch result{
-            case .success(let model):
-                let output = model.choices?.first?.text ?? ""
-                //print(model)
-                print(model.choices as Any)
-                completion(output)
-            case .failure:
-                print("fail")
-                break
+    func send(text: String, completion: @escaping (String) -> Void) {
+        guard let url = URL(string: "completions", relativeTo: baseURL) else {
+            print("Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let parameters: [String: Any] = [
+            "model": "gpt-3.5-turbo-instruct",
+            "prompt": text,
+            "max_tokens": 150
+        ]
+        
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
+            print("Failed to serialize JSON")
+            return
+        }
+        
+        request.httpBody = httpBody
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                return
             }
-        })
+            
+            if let decodedResponse = try? JSONDecoder().decode(CompletionResponse.self, from: data) {
+                completion(decodedResponse.choices.first?.text ?? "")
+            } else {
+                let responseString = String(data: data, encoding: .utf8) ?? "Unable to decode response data"
+                print("Response: \(responseString)")
+            }
+        }.resume()
     }
-    
+
+}
+
+struct CompletionResponse: Decodable {
+    let choices: [Choice]
+}
+
+struct Choice: Decodable {
+    let text: String
 }
 
 struct OpenAICaller: View {
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var viewModel: ViewModel
     @State var text = ""
     @State var models = [String]()
     
+    init() {
+        let apiKey = "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"
+        self.viewModel = ViewModel(apiKey: apiKey)
+    }
+    
     var body: some View {
-        VStack(alignment: .leading){
-            ForEach(models, id: \.self){ string in
+        VStack(alignment: .leading) {
+            ForEach(models, id: \.self) { string in
                 Text(string)
             }
             Spacer()
             
-            HStack{
+            HStack {
                 TextField("Type", text: $text)
-                Button("Send"){
+                Button("Send") {
                     send()
                 }
             }
         }
-        .onAppear{
-            viewModel.setupOpenAI()
-        }
         .padding()
     }
     
-    func send(){
-        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else{
+    func send() {
+        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
             return
         }
         
         models.append("Me: \(text)")
         
-        //print("test")
-        // Respon dari ChatGPT
         viewModel.send(text: text) { response in
-            //print("response")
             DispatchQueue.main.async {
-                self.models.append("ChatGPT: "+response)
-                
+                self.models.append("ChatGPT: \(response)")
                 self.text = ""
             }
         }
