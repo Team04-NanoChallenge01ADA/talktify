@@ -5,7 +5,7 @@ struct PersonalityView: View {
     
     @State private var selectedEmotions: Int = 0
     @State private var selectedInterest: Int = 0
-    var emotions = ["☺️", "😊", "😄"]
+    var emotions = ["☺️", "😄", "🤣"]
     
     var interest: Array<(String,value: String)> = [
         ("💬","Apa saja"),
@@ -84,10 +84,10 @@ struct PersonalityView: View {
                             case "☺️": 
                             AIModel.sharedInstance().personality = AIPersonalityEnum.calm
                             break
-                            case "😊": 
+                            case "😄":
                             AIModel.sharedInstance().personality = AIPersonalityEnum.cheerful
                             break
-                            case "😄": 
+                            case "🤣":
                             AIModel.sharedInstance().personality = AIPersonalityEnum.energetic
                             break
                             default:
@@ -100,7 +100,7 @@ struct PersonalityView: View {
                             .font(.system(size: 40).bold())
                             .frame(width: 275, height: 70)
                             .foregroundColor(.white)
-                            .background(Color(red: 0.2, green: 0.78, blue: 0.35))
+                            .background(buttonColor())
                             .cornerRadius(45)
                     }.padding(.bottom)
                     
@@ -108,6 +108,15 @@ struct PersonalityView: View {
             }.padding(.horizontal, 50)
         }
     }
+    
+    func buttonColor() -> Color{
+        if AIModel.sharedInstance().gender == AIGenderEnum.male {
+            return Color.blue400
+        } else {
+            return Color.pink400
+        }
+    }
+    
 }
 
 #Preview {
