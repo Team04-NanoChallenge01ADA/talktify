@@ -23,7 +23,7 @@ final class ViewModel: ObservableObject {
         print(prompt)
         
         let requestData: [String: Any] = [
-            "model": "gpt-3.5-turbo-interact",
+            "model": "gpt-3.5-turbo",
             "messages": prompt,
             "max_tokens": 500
         ]
