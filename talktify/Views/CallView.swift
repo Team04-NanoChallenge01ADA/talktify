@@ -7,9 +7,12 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 import AVFAudio
 
 struct CallView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var callTimer: Int = 0
     @State private var isMicrophoneMuted: Bool = false;
     @State private var isLoudSpeaker: Bool = true;
@@ -57,17 +60,21 @@ struct CallView: View {
                         activeBackground: .white,
                         inactiveBackground: .black.opacity(0.3))
                     
+                    
                     CallButtonComponent(
                         action: {
                             ttsUtils!.send(
                                 text: "Indonesia banget ga sih"
                             )
+                            endCallVibrate()
+                            self.presentationMode.wrappedValue.dismiss()
                         },
                         isActive: true,
                         activeIcon: "phone.down.fill",
                         inActiveIcon: "",
                         activeBackground: .white,
                         inactiveBackground: .white)
+
                     
                     CallButtonComponent(
                         action: {
@@ -131,6 +138,9 @@ struct CallView: View {
             }
             previousRecognizedText = speechRecognition.recognizedText ?? ""
         }
+    func endCallVibrate(){
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
     
     func backgroundColor() -> Color {
