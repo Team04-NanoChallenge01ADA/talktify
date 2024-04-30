@@ -1,20 +1,22 @@
 import SwiftUI
 
-final class ViewModel: ObservableObject {
-    private let apiKey: String
-    private let baseURL = URL(string: "https://api.openai.com/v1/")!
-    static var historyMessage: Array<[String:String]> = []
-    init(apiKey: String) {
-        self.apiKey = apiKey
-    }
+final class OpenAICaller: ObservableObject {
     
-    func send(text: String, messages: [String]?, completion: @escaping (String) -> Void) {
+    //let apiKey = "sk-proj-veQX3jLtw6iZ4muej129T3BlbkFJK3dDhr957FvJW7GueL5O" // $4.99
+    //let apiKey = "sk-proj-HTqDSyks1ta9ePIPCKe3T3BlbkFJJouJqtk2US4zUs9IyJyh" // $4.99
+
+    private let apiKey: String = "sk-proj-veQX3jLtw6iZ4muej129T3BlbkFJK3dDhr957FvJW7GueL5O"
+    private let baseURL = URL(string: "https://api.openai.com/v1/")!
+    
+    static var historyMessage: Array<[String:String]> = []
+    
+    func send(text: String, completion: @escaping (String) -> Void) {
         guard let url = URL(string: "chat/completions", relativeTo: baseURL) else {
             print("Invalid URL")
             return
         }
         
-        var prompt = ViewModel.historyMessage
+        var prompt = OpenAICaller.historyMessage
         prompt.append([
             "role":"user",
             "content": text
@@ -48,7 +50,7 @@ final class ViewModel: ObservableObject {
             
             if let decodedResponse = try? JSONDecoder().decode(CompletionResponse.self, from: data) {
                 print(data)
-                ViewModel.historyMessage.append([
+                OpenAICaller.historyMessage.append([
                     "role": "assistant",
                     "content": decodedResponse.choices.first?.message.content ?? "",
                 ])
@@ -78,52 +80,59 @@ struct ChoiceMessage: Decodable {
     let role: String
     let content: String
 }
-
-struct OpenAICaller: View {
-    @ObservedObject var viewModel: ViewModel
-    @State var text = ""
-    @State var models = [String]()
-    
-    init() {
-//        let apiKey = "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"
-        let apiKey = "sk-proj-veQX3jLtw6iZ4muej129T3BlbkFJK3dDhr957FvJW7GueL5O" 
-//        let apiKey = "sk-proj-HTqDSyks1ta9ePIPCKe3T3BlbkFJJouJqtk2US4zUs9IyJyh"
-        self.viewModel = ViewModel(apiKey: apiKey)
-    }
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            ForEach(models, id: \.self) { string in
-                Text(string)
-            }
-            Spacer()
-            
-            HStack {
-                TextField("Type", text: $text)
-                Button("Send") {
-                    send()
-                }
-            }
-        }
-        .padding()
-    }
-    
-    func send() {
-        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
-            return
-        }
-        
-        models.append("Me: \(text)")
-        
-        viewModel.send(text: text, messages: self.models) { response in
-            DispatchQueue.main.async {
-                self.models.append("ChatGPT: \(response)")
-                self.text = ""
-            }
-        }
-    }
-}
-
-#Preview {
-    OpenAICaller()
-}
+//
+//struct OpenAICallerView: View {
+//    @ObservedObject var viewModel: OpenAICaller
+//    @State var text = ""
+//    @State var models = [String]()
+//    
+//    init() {
+//        self.viewModel = OpenAICaller()
+//    }
+//    
+//    var body: some View {
+//        VStack(alignment: .leading) {
+//            ForEach(models, id: \.self) { string in
+//                Text(string)
+//            }
+//            Spacer()
+//            
+//            HStack {
+//                TextField("Type", text: $text)
+//                Button("Send") {
+//                    send()
+//                }
+//            }
+//        }
+//        .padding()
+//        .onAppear(){
+//            viewModel.send(
+//                text: AIModel.sharedInstance().initialPrompt(),
+//                messages: self.models
+//            ) { response in
+//                DispatchQueue.main.async {
+//                    self.text = ""
+//                }
+//            }
+//        }
+//    }
+//    
+//    func send() {
+//        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
+//            return
+//        }
+//        
+//        models.append("Me: \(text)")
+//        
+//        viewModel.send(text: text, messages: self.models) { response in
+//            DispatchQueue.main.async {
+//                self.models.append("ChatGPT: \(response)")
+//                self.text = ""
+//            }
+//        }
+//    }
+//}
+//
+//#Preview {
+//    OpenAICallerView()
+//}
