@@ -59,7 +59,9 @@ struct PersonalityView: View {
                             Text(String(interest[index].0))
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                 .onTapGesture {
-                                    selectedInterest = index
+                                    withAnimation(.easeInOut(duration: 0.17)){
+                                        selectedInterest = index
+                                    }
                                 }
                             
                         }
