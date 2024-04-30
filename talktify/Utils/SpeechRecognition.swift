@@ -31,6 +31,7 @@ final class SpeechRecognition: NSObject, ObservableObject, SFSpeechRecognizerDel
         inputNode = audioEngine.inputNode
         
         speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "id_ID"))
+//        speechRecognizer = SFSpeechRecognizer()
         print("Supports on device recognition: \(speechRecognizer?.supportsOnDeviceRecognition == true ? "✅" : "🔴")")
 
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()

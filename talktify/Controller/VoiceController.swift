@@ -22,6 +22,7 @@ struct VoiceController {
         var request = URLRequest(url: url)
         let parameters = [
             "model_id": "eleven_multilingual_v2",
+//            "model_id": "eleven_turbo_v2",
             "text": text
         ]
         do {
