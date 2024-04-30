@@ -138,8 +138,6 @@ struct CallView: View {
             }
             previousRecognizedText = speechRecognition.recognizedText ?? ""
         }
-    }
-    
     func endCallVibrate(){
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
