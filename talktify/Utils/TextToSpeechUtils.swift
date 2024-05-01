@@ -31,7 +31,7 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
         }
         
         var model = "eleven_multilingual_v2"
-        if(AIModel.sharedInstance().language!.rawValue == "Bahasa inggris"){model = "eleven_turbo_v2"}
+        if(AIModel.sharedInstance().language!.rawValue == "Bahasa Inggris"){model = "eleven_turbo_v2"}
         
         var request = URLRequest(url: url)
         let parameters = [
@@ -48,7 +48,7 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(TTS_API_KEY, forHTTPHeaderField: "xi-api-key")
-
+        print(model)
         let task = URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
             
             if let error = error {

@@ -49,6 +49,11 @@ enum Voices: String, Codable {
     //case english = "XB0fDUnXU5powFXDhCwa"
 }
 
+enum VoiceModel: String, Codable {
+    case english = "eleven_turbo_v2" // ENG
+    case other = "eleven_multilingual_v2" // Other
+}
+
 
 class AIModel: Encodable{
     var gender: AIGenderEnum?
@@ -56,6 +61,7 @@ class AIModel: Encodable{
     var interest : AIInterestEnum?
     var language : AILanguageEnum?
     var voice : Voices?
+    var voiceModel : VoiceModel?
     
     static private var shared: AIModel?
     
@@ -78,17 +84,18 @@ class AIModel: Encodable{
         }
         if(voice == nil){return Voices.female_cheerful.rawValue}
 
+        if(language == AILanguageEnum.english){}
         let voiceID = voice!.rawValue
         return voiceID
     }
     
     func initialPrompt()->String{
         if((language == nil) || (gender == nil) || (personality == nil) || (interest == nil)){return ""}
+
+        let prompt = "Bayangkan kamu adalah seorang \(gender!.rawValue), kamu berbicara bahasa \(language!.rawValue), kamu memiliki sifat \(personality!.rawValue) dan hobi mu seputar \(interest!.rawValue). Saat ini kamu akan memperkenalkan diri kepada seseorang. Cobalah untuk berbicara santai dan seperti teman, dan perkenalkanlah namamu serta tanya kembali nama lawan bicaramu. Cobalah untuk menjawab dengan singkat 10 kata";
+//
         
-//        let prompt = "Bayangkan kamu adalah seorang \(gender!.rawValue), kamu memiliki sifat \(personality!.rawValue) dan hobi mu seputar \(interest!.rawValue). Saat ini kamu akan memperkenalkan diri kepada seseorang. Cobalah untuk berbicara seperti teman, dan perkenalkanlah namamu serta tanya kembali nama lawan bicaramu. Cobalah untuk menjawab dengan singkat 15 - 20 kata";
-//        
-        
-        let prompt = "Image you are \(gender!.rawValue), you are speaking \(language!.rawValue), you have \(personality!.rawValue) personality and your hobby is \(interest!.rawValue). Currently you need to introduce yourself to some people. Try to speak like a friend and a native of that language, and introduce your name and ask him/her name. Also just give us an output like 10 words. Remember to generate your own name."
+ //       let prompt = "Image you are \(gender!.rawValue), you are speaking \(language!.rawValue), you have \(personality!.rawValue) personality and your hobby is \(interest!.rawValue). Currently you need to introduce yourself to some people. Try to speak like a friend and a native of that language, and introduce your name and ask him/her name. Also just give us an output like 10 words. Remember to generate your own name."
         return prompt
 //        let jsonData = try JSONEncoder().encode(self)
 //        guard let jsonString = String(data: jsonData, encoding: .utf8) else{

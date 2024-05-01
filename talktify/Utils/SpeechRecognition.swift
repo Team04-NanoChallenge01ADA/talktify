@@ -30,8 +30,13 @@ final class SpeechRecognition: NSObject, ObservableObject, SFSpeechRecognizerDel
         
         inputNode = audioEngine.inputNode
         
-//        speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "id_ID"))
-        speechRecognizer = SFSpeechRecognizer()
+        var speechLanguage = "id-ID"
+        if(AIModel.sharedInstance().language!.rawValue == "Bahasa Inggris"){speechLanguage = "en-US"}
+        else if(AIModel.sharedInstance().language!.rawValue == "Bahasa Indonesia"){speechLanguage = "id-ID"}
+        else if(AIModel.sharedInstance().language!.rawValue == "Bahasa Mandarin"){speechLanguage = "zh-CN"}
+        
+        speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: speechLanguage))
+        //speechRecognizer = SFSpeechRecognizer()
         print("Supports on device recognition: \(speechRecognizer?.supportsOnDeviceRecognition == true ? "✅" : "🔴")")
 
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()

@@ -77,6 +77,7 @@ struct CallView: View {
 //                                text: "Indonesia banget ga sih"
 //                            )
                             self.playEndCallEffect()
+                            
                             endCallVibrate()
                             self.presentationMode.wrappedValue.dismiss()
                         },
