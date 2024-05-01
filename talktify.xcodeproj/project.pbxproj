@@ -10,7 +10,6 @@
 		460C10CD2BDF81AE000AFF12 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C10CC2BDF81AE000AFF12 /* GenderView.swift */; };
 		460C10D32BDFAC83000AFF12 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C10D22BDFAC83000AFF12 /* AIModel.swift */; };
 		D94B56E22BDF881F003FFA6E /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B56E12BDF881F003FFA6E /* PersonalityView.swift */; };
-		D94B57022BDFFF4D003FFA6E /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = D94B57012BDFFF4D003FFA6E /* OpenAISwift */; };
 		D94B57042BDFFF60003FFA6E /* OpenAICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B57032BDFFF60003FFA6E /* OpenAICaller.swift */; };
 		EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */; };
 		EF18D9132BDF3CBF005E2670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF18D9122BDF3CBF005E2670 /* Assets.xcassets */; };
@@ -21,7 +20,8 @@
 		EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D93A2BDF6956005E2670 /* CallView.swift */; };
 		EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */; };
 		EF18D94A2BDF882E005E2670 /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */; };
-		EF6DAEC42BDFF5C200FD806D /* VoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6DAEC32BDFF5C200FD806D /* VoiceController.swift */; };
+		EF6BF7E72BE14CAF00E58EDE /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BF7E62BE14CAF00E58EDE /* constants.swift */; };
+		EF6BF7E92BE1500600E58EDE /* TextToSpeechUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BF7E82BE1500600E58EDE /* TextToSpeechUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,8 @@
 		EF18D93A2BDF6956005E2670 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButtonComponent.swift; sourceTree = "<group>"; };
 		EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
-		EF6DAEC32BDFF5C200FD806D /* VoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceController.swift; sourceTree = "<group>"; };
+		EF6BF7E62BE14CAF00E58EDE /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		EF6BF7E82BE1500600E58EDE /* TextToSpeechUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D94B57022BDFFF4D003FFA6E /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,10 +121,10 @@
 				EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */,
 				EF18D9482BDF8820005E2670 /* Utils */,
 				460C10D12BDFAC79000AFF12 /* Models */,
-				EF6DAEC22BDFF5AC00FD806D /* Controller */,
 				EF18D9382BDF6947005E2670 /* Views */,
 				EF18D9122BDF3CBF005E2670 /* Assets.xcassets */,
 				EF18D9142BDF3CBF005E2670 /* Preview Content */,
+				EF6BF7E62BE14CAF00E58EDE /* constants.swift */,
 			);
 			path = talktify;
 			sourceTree = "<group>";
@@ -178,16 +178,9 @@
 			children = (
 				D94B57032BDFFF60003FFA6E /* OpenAICaller.swift */,
 				EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */,
+				EF6BF7E82BE1500600E58EDE /* TextToSpeechUtils.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		EF6DAEC22BDFF5AC00FD806D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				EF6DAEC32BDFF5C200FD806D /* VoiceController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +200,6 @@
 			);
 			name = talktify;
 			packageProductDependencies = (
-				D94B57012BDFFF4D003FFA6E /* OpenAISwift */,
 			);
 			productName = talktify;
 			productReference = EF18D90B2BDF3CBE005E2670 /* talktify.app */;
@@ -327,9 +319,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				460C10D32BDFAC83000AFF12 /* AIModel.swift in Sources */,
+				EF6BF7E92BE1500600E58EDE /* TextToSpeechUtils.swift in Sources */,
 				EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */,
+				EF6BF7E72BE14CAF00E58EDE /* constants.swift in Sources */,
 				D94B57042BDFFF60003FFA6E /* OpenAICaller.swift in Sources */,
-				EF6DAEC42BDFF5C200FD806D /* VoiceController.swift in Sources */,
 				EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */,
 				D94B56E22BDF881F003FFA6E /* PersonalityView.swift in Sources */,
 				EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */,
@@ -498,7 +491,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
-				DEVELOPMENT_TEAM = 5H49J96R9T;
+				DEVELOPMENT_TEAM = DP3K3GBL6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want to hear you :D";
@@ -513,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -529,7 +522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
-				DEVELOPMENT_TEAM = 5H49J96R9T;
+				DEVELOPMENT_TEAM = DP3K3GBL6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want to hear you :D";
@@ -544,7 +537,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -675,14 +668,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D94B57012BDFFF4D003FFA6E /* OpenAISwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D94B57002BDFFF4D003FFA6E /* XCRemoteSwiftPackageReference "OpenAISwift" */;
-			productName = OpenAISwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF18D9032BDF3CBE005E2670 /* Project object */;
 }

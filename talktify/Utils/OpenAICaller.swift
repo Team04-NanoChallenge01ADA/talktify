@@ -22,8 +22,6 @@ final class OpenAICaller: ObservableObject {
             "content": text
         ])
         
-        print(prompt)
-        
         let requestData: [String: Any] = [
             "model": "gpt-3.5-turbo",
             "messages": prompt,
@@ -48,8 +46,10 @@ final class OpenAICaller: ObservableObject {
                 return
             }
             
+            print(response)
+            print(data)
             if let decodedResponse = try? JSONDecoder().decode(CompletionResponse.self, from: data) {
-                print(data)
+                print(decodedResponse)
                 OpenAICaller.historyMessage.append([
                     "role": "assistant",
                     "content": decodedResponse.choices.first?.message.content ?? "",
@@ -80,59 +80,3 @@ struct ChoiceMessage: Decodable {
     let role: String
     let content: String
 }
-//
-//struct OpenAICallerView: View {
-//    @ObservedObject var viewModel: OpenAICaller
-//    @State var text = ""
-//    @State var models = [String]()
-//    
-//    init() {
-//        self.viewModel = OpenAICaller()
-//    }
-//    
-//    var body: some View {
-//        VStack(alignment: .leading) {
-//            ForEach(models, id: \.self) { string in
-//                Text(string)
-//            }
-//            Spacer()
-//            
-//            HStack {
-//                TextField("Type", text: $text)
-//                Button("Send") {
-//                    send()
-//                }
-//            }
-//        }
-//        .padding()
-//        .onAppear(){
-//            viewModel.send(
-//                text: AIModel.sharedInstance().initialPrompt(),
-//                messages: self.models
-//            ) { response in
-//                DispatchQueue.main.async {
-//                    self.text = ""
-//                }
-//            }
-//        }
-//    }
-//    
-//    func send() {
-//        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
-//            return
-//        }
-//        
-//        models.append("Me: \(text)")
-//        
-//        viewModel.send(text: text, messages: self.models) { response in
-//            DispatchQueue.main.async {
-//                self.models.append("ChatGPT: \(response)")
-//                self.text = ""
-//            }
-//        }
-//    }
-//}
-//
-//#Preview {
-//    OpenAICallerView()
-//}
