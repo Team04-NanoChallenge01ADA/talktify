@@ -72,6 +72,7 @@ struct CallView: View {
                     CallButtonComponent(
                         action: {
                             endCallVibrate()
+                            audioPlayer?.stop()
                             self.presentationMode.wrappedValue.dismiss()
                         },
                         isActive: true,
@@ -99,12 +100,15 @@ struct CallView: View {
                 height: geometry.size.height)
         }.background(backgroundColor())
             .onAppear(){
+                isMicrophoneMuted = true
+                speechRecognition.stop()
+
                 ttsUtils = TextToSpeechUtils(begin: {
-                    isMicrophoneMuted = false
+                    isMicrophoneMuted = true
                     speechRecognition.stop()
                     isLoading = true
                 },completion: {
-                    isMicrophoneMuted = true
+                    isMicrophoneMuted = false
                     speechRecognition.start()
                     isLoading = false
                 })
