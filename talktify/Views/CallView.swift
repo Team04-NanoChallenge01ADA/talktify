@@ -79,6 +79,7 @@ struct CallView: View {
                             self.playEndCallEffect()
                             
                             endCallVibrate()
+                            audioPlayer?.stop()
                             self.presentationMode.wrappedValue.dismiss()
                         },
                         isActive: true,
@@ -106,13 +107,16 @@ struct CallView: View {
                 height: geometry.size.height)
         }.background(backgroundColor())
             .onAppear(){
+                isMicrophoneMuted = true
+                speechRecognition.stop()
+
                 self.playAnswerEffect()
                 ttsUtils = TextToSpeechUtils(begin: {
-                    isMicrophoneMuted = false
+                    isMicrophoneMuted = true
                     speechRecognition.stop()
                     isLoading = true
                 },completion: {
-                    isMicrophoneMuted = true
+                    isMicrophoneMuted = false
                     speechRecognition.start()
                     isLoading = false
                 })
@@ -134,7 +138,7 @@ struct CallView: View {
         }
         
         // API Call Interval
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: true){time in
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true){time in
             // Validating someone is stop talking
             if speechRecognition.recognizedText == previousRecognizedText && !isLoading && speechRecognition.recognizedText != "" {
                 
