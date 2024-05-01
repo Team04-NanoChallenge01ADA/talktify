@@ -56,7 +56,7 @@ struct CallView: View {
                             isMicrophoneMuted.toggle()
                         },
                         isActive: isMicrophoneMuted,
-                        activeIcon: "mic.fill",
+                        activeIcon: "mic.slash.fill",
                         inActiveIcon: "mic.slash.fill",
                         activeBackground: .white,
                         inactiveBackground: .black.opacity(0.3))

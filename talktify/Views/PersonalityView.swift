@@ -3,7 +3,7 @@ import SwiftUI
 struct PersonalityView: View {
     @State private var isCall: Bool = false
     
-    @State private var selectedEmotions: Int = 0
+    @State private var selectedEmotions: Int = 1
     @State private var selectedInterest: Int = 0
     @State private var selectedLanguage: Int = 1
     var emotions = ["☺️", "😄", "🤣"]
