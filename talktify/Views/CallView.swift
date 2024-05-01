@@ -99,14 +99,14 @@ struct CallView: View {
                 height: geometry.size.height)
         }.background(backgroundColor())
             .onAppear(){
-                ttsUtils = TextToSpeechUtils(completion: {
-                    isMicrophoneMuted = true
-                    speechRecognition.start()
-                    isLoading = false
-                }, begin: {
+                ttsUtils = TextToSpeechUtils(begin: {
                     isMicrophoneMuted = false
                     speechRecognition.stop()
                     isLoading = true
+                },completion: {
+                    isMicrophoneMuted = true
+                    speechRecognition.start()
+                    isLoading = false
                 })
                 
                 apiController.send(text: AIModel.sharedInstance().initialPrompt()) { response in

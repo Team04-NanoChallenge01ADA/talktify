@@ -15,7 +15,7 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
     var speakCompletion: (()->Void)?
     var speakBegin: (()->Void)?
     
-    init(completion: (() -> Void)? = nil, begin:(()->Void)? = nil) {
+    init(begin:(()->Void)? = nil,completion: (() -> Void)? = nil) {
         self.speakCompletion = completion
         self.speakBegin = begin
     }
