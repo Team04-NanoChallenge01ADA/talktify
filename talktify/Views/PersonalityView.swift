@@ -36,7 +36,18 @@ struct PersonalityView: View {
             Spacer().frame(height: 50)
             
             VStack {
-
+                Picker("Languages?", selection: $selectedLanguage) {
+                    ForEach(0..<languages.count, id: \.self) { language in
+                        Text(languages[language])
+                            .tag(language)
+                    }
+                }
+                .pickerStyle(DefaultPickerStyle())
+                .scaleEffect(CGSize(width: 1.7, height: 1.7))
+                .accentColor(Color(buttonColor()))
+                
+                Spacer().frame(height: 30)
+                
                 Picker("Emotions?", selection: $selectedEmotions) {
                     ForEach(0..<emotions.count, id: \.self) { index in
                         Text(emotions[index])
@@ -48,21 +59,7 @@ struct PersonalityView: View {
                 .scaleEffect(CGSize(width: 1.2, height: 1.2))
                 .padding(20)
                 
-                Spacer().frame(height: 50)
-                
-                Picker("Languages?", selection: $selectedLanguage) {
-                    ForEach(0..<languages.count, id: \.self) { language in
-                        Text(languages[language])
-                            .tag(language)
-                    }
-                }
-                .pickerStyle(WheelPickerStyle())
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 100)
-                .background(.white)
-                .cornerRadius(5)
-                .accentColor(Color(UIColor.secondarySystemBackground))
-                
-                Spacer().frame(height: 50)
+                Spacer().frame(height: 30)
                 
                 LazyVGrid(columns: flexibleColumn, spacing: 20) {
                     ForEach(interest.indices, id: \.self) { index in
