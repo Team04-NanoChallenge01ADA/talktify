@@ -25,8 +25,6 @@ struct PersonalityView: View {
         ("⚽️","Olahraga")
     ]
     
-    @State private var player: AVAudioPlayer!
-    
     private let flexibleColumn = [
         
         GridItem(.flexible(minimum: 50, maximum: 100)),
@@ -118,8 +116,6 @@ struct PersonalityView: View {
                        
                         AIModel.sharedInstance().interest = AIInterestEnum(rawValue: interest[selectedInterest].value)
                         
-                        playAnswerEffect()
-                        
                         switch(languages[selectedLanguage]){
                             case "🇺🇸":
                             AIModel.sharedInstance().language = AILanguageEnum.english
@@ -156,20 +152,6 @@ struct PersonalityView: View {
         }
     }
     
-    func playAnswerEffect(){
-        let url = Bundle.main.url(forResource: "facetimeAnswer", withExtension: "mp3")
-        
-        guard url != nil else {
-            return
-        }
-        
-        do {
-            player = try AVAudioPlayer(contentsOf: url!)
-            player.play()
-        } catch {
-            print("Can't play sound effect")
-        }
-    }
     
 }
 

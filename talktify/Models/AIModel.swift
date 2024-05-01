@@ -76,7 +76,7 @@ class AIModel: Encodable{
             else if(personality == AIPersonalityEnum.cheerful){voice = Voices.female_cheerful}
             else if(personality == AIPersonalityEnum.energetic){voice = Voices.female_energetic}
         }
-        if(voice == nil){return ""}
+        if(voice == nil){return Voices.female_cheerful.rawValue}
 
         let voiceID = voice!.rawValue
         return voiceID

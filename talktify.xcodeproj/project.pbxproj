@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		460C10CD2BDF81AE000AFF12 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C10CC2BDF81AE000AFF12 /* GenderView.swift */; };
 		460C10D32BDFAC83000AFF12 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C10D22BDFAC83000AFF12 /* AIModel.swift */; };
-		4695426D2BE290430036D1BB /* facetimeAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4695426C2BE290430036D1BB /* facetimeAnswer.mp3 */; };
-		4695426F2BE290550036D1BB /* facetimeHangUp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4695426E2BE290550036D1BB /* facetimeHangUp.mp3 */; };
-		469542712BE290600036D1BB /* facetimeCalling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 469542702BE290600036D1BB /* facetimeCalling.mp3 */; };
+		469542752BE297EB0036D1BB /* facetimeAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 469542722BE297EB0036D1BB /* facetimeAnswer.mp3 */; };
+		469542762BE297EB0036D1BB /* facetimeCalling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 469542732BE297EB0036D1BB /* facetimeCalling.mp3 */; };
+		469542772BE297EB0036D1BB /* facetimeHangUp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 469542742BE297EB0036D1BB /* facetimeHangUp.mp3 */; };
 		D94B56E22BDF881F003FFA6E /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B56E12BDF881F003FFA6E /* PersonalityView.swift */; };
 		D94B57042BDFFF60003FFA6E /* OpenAICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B57032BDFFF60003FFA6E /* OpenAICaller.swift */; };
 		EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */; };
@@ -47,9 +47,9 @@
 /* Begin PBXFileReference section */
 		460C10CC2BDF81AE000AFF12 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		460C10D22BDFAC83000AFF12 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
-		4695426C2BE290430036D1BB /* facetimeAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = facetimeAnswer.mp3; path = ../../../../../../Downloads/facetimeAnswer.mp3; sourceTree = "<group>"; };
-		4695426E2BE290550036D1BB /* facetimeHangUp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = facetimeHangUp.mp3; path = ../../../../../../Downloads/facetimeHangUp.mp3; sourceTree = "<group>"; };
-		469542702BE290600036D1BB /* facetimeCalling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = facetimeCalling.mp3; path = ../../../../../../Downloads/facetimeCalling.mp3; sourceTree = "<group>"; };
+		469542722BE297EB0036D1BB /* facetimeAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = facetimeAnswer.mp3; sourceTree = "<group>"; };
+		469542732BE297EB0036D1BB /* facetimeCalling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = facetimeCalling.mp3; sourceTree = "<group>"; };
+		469542742BE297EB0036D1BB /* facetimeHangUp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = facetimeHangUp.mp3; sourceTree = "<group>"; };
 		D94B56E12BDF881F003FFA6E /* PersonalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityView.swift; sourceTree = "<group>"; };
 		D94B57032BDFFF60003FFA6E /* OpenAICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICaller.swift; sourceTree = "<group>"; };
 		EF18D90B2BDF3CBE005E2670 /* talktify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talktify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,9 +104,9 @@
 		4695426B2BE290000036D1BB /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				469542702BE290600036D1BB /* facetimeCalling.mp3 */,
-				4695426E2BE290550036D1BB /* facetimeHangUp.mp3 */,
-				4695426C2BE290430036D1BB /* facetimeAnswer.mp3 */,
+				469542722BE297EB0036D1BB /* facetimeAnswer.mp3 */,
+				469542732BE297EB0036D1BB /* facetimeCalling.mp3 */,
+				469542742BE297EB0036D1BB /* facetimeHangUp.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -309,9 +309,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				469542712BE290600036D1BB /* facetimeCalling.mp3 in Resources */,
-				4695426D2BE290430036D1BB /* facetimeAnswer.mp3 in Resources */,
-				4695426F2BE290550036D1BB /* facetimeHangUp.mp3 in Resources */,
+				469542752BE297EB0036D1BB /* facetimeAnswer.mp3 in Resources */,
+				469542762BE297EB0036D1BB /* facetimeCalling.mp3 in Resources */,
+				469542772BE297EB0036D1BB /* facetimeHangUp.mp3 in Resources */,
 				EF18D9162BDF3CBF005E2670 /* Preview Assets.xcassets in Resources */,
 				EF18D9132BDF3CBF005E2670 /* Assets.xcassets in Resources */,
 			);
@@ -526,7 +526,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -557,7 +557,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
