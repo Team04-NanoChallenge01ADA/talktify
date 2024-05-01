@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct GenderView: View {
     @State var isClickedMan = false
     @State var isClickedWoman = false
     @State var isSubmitClicked = false
     
+    let synthesizer = AVSpeechSynthesizer()
+    let utterance = AVSpeechUtterance(string:"Hi!")
+
     
     var body: some View {
         NavigationStack {
@@ -26,6 +30,10 @@ struct GenderView: View {
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 self.isClickedMan.toggle()
                                 isClickedWoman = false
+                                if isClickedMan {
+                                    utterance.voice = AVSpeechSynthesisVoice(language: "he-IL")
+                                    synthesizer.speak(utterance)
+                                }
                             }
                         }) {
                             ZStack {
@@ -43,6 +51,10 @@ struct GenderView: View {
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 self.isClickedWoman.toggle()
                                 isClickedMan = false
+                                if isClickedWoman {
+                                    utterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
+                                    synthesizer.speak(utterance)
+                                }
                             }
                         }) {
                             ZStack {
