@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		460C10CD2BDF81AE000AFF12 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C10CC2BDF81AE000AFF12 /* GenderView.swift */; };
 		460C10D32BDFAC83000AFF12 /* AIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C10D22BDFAC83000AFF12 /* AIModel.swift */; };
+		4695426D2BE290430036D1BB /* facetimeAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4695426C2BE290430036D1BB /* facetimeAnswer.mp3 */; };
+		4695426F2BE290550036D1BB /* facetimeHangUp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4695426E2BE290550036D1BB /* facetimeHangUp.mp3 */; };
+		469542712BE290600036D1BB /* facetimeCalling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 469542702BE290600036D1BB /* facetimeCalling.mp3 */; };
 		D94B56E22BDF881F003FFA6E /* PersonalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B56E12BDF881F003FFA6E /* PersonalityView.swift */; };
 		D94B57042BDFFF60003FFA6E /* OpenAICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B57032BDFFF60003FFA6E /* OpenAICaller.swift */; };
 		EF18D90F2BDF3CBE005E2670 /* talktifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */; };
@@ -44,6 +47,9 @@
 /* Begin PBXFileReference section */
 		460C10CC2BDF81AE000AFF12 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		460C10D22BDFAC83000AFF12 /* AIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIModel.swift; sourceTree = "<group>"; };
+		4695426C2BE290430036D1BB /* facetimeAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = facetimeAnswer.mp3; path = ../../../../../../Downloads/facetimeAnswer.mp3; sourceTree = "<group>"; };
+		4695426E2BE290550036D1BB /* facetimeHangUp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = facetimeHangUp.mp3; path = ../../../../../../Downloads/facetimeHangUp.mp3; sourceTree = "<group>"; };
+		469542702BE290600036D1BB /* facetimeCalling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = facetimeCalling.mp3; path = ../../../../../../Downloads/facetimeCalling.mp3; sourceTree = "<group>"; };
 		D94B56E12BDF881F003FFA6E /* PersonalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityView.swift; sourceTree = "<group>"; };
 		D94B57032BDFFF60003FFA6E /* OpenAICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICaller.swift; sourceTree = "<group>"; };
 		EF18D90B2BDF3CBE005E2670 /* talktify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talktify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +101,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4695426B2BE290000036D1BB /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				469542702BE290600036D1BB /* facetimeCalling.mp3 */,
+				4695426E2BE290550036D1BB /* facetimeHangUp.mp3 */,
+				4695426C2BE290430036D1BB /* facetimeAnswer.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		EF18D9022BDF3CBE005E2670 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +134,7 @@
 		EF18D90D2BDF3CBE005E2670 /* talktify */ = {
 			isa = PBXGroup;
 			children = (
+				4695426B2BE290000036D1BB /* Sounds */,
 				EF18D90E2BDF3CBE005E2670 /* talktifyApp.swift */,
 				EF18D9482BDF8820005E2670 /* Utils */,
 				460C10D12BDFAC79000AFF12 /* Models */,
@@ -292,6 +309,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				469542712BE290600036D1BB /* facetimeCalling.mp3 in Resources */,
+				4695426D2BE290430036D1BB /* facetimeAnswer.mp3 in Resources */,
+				4695426F2BE290550036D1BB /* facetimeHangUp.mp3 in Resources */,
 				EF18D9162BDF3CBF005E2670 /* Preview Assets.xcassets in Resources */,
 				EF18D9132BDF3CBF005E2670 /* Assets.xcassets in Resources */,
 			);
@@ -491,7 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
-				DEVELOPMENT_TEAM = DP3K3GBL6K;
+				DEVELOPMENT_TEAM = 5H49J96R9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want to hear you :D";
@@ -506,7 +526,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktify;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -522,7 +542,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
-				DEVELOPMENT_TEAM = DP3K3GBL6K;
+				DEVELOPMENT_TEAM = 5H49J96R9T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want to hear you :D";
@@ -537,7 +557,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktify;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solstice.talktifyo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
