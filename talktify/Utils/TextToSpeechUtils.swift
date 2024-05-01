@@ -26,11 +26,14 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
             print("Invalid URL")
             return
         }
-
+        
+        var model = "eleven_multilingual_v2"
+        if(AIModel.sharedInstance().language!.rawValue == "Bahasa Inggris"){model = "eleven_turbo_v2"}
+        
         var request = URLRequest(url: url)
         let parameters = [
 //            "model_id": "eleven_turbo_v2", // EN-Only
-            "model_id": "eleven_multilingual_v2", // Any Language
+            "model_id": model, // Any Language
             "text": text
         ]
         do {
@@ -42,7 +45,7 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(TTS_API_KEY, forHTTPHeaderField: "xi-api-key")
-
+        print(model)
         let task = URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
             
             if let error = error {

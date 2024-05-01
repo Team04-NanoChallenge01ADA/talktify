@@ -54,7 +54,7 @@ struct PersonalityView: View {
                             .tag(index)
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
+                .pickerStyle(DefaultPickerStyle())
                 .scaledToFit()
                 .scaleEffect(CGSize(width: 1.2, height: 1.2))
                 .padding(20)
