@@ -1,4 +1,5 @@
 import SwiftUI
+import AVKit
 
 struct PersonalityView: View {
     @State private var isCall: Bool = false
@@ -23,6 +24,7 @@ struct PersonalityView: View {
         ("🎨","Seni"),
         ("⚽️","Olahraga")
     ]
+    
     private let flexibleColumn = [
         
         GridItem(.flexible(minimum: 50, maximum: 100)),
@@ -54,7 +56,7 @@ struct PersonalityView: View {
                             .tag(index)
                     }
                 }
-                .pickerStyle(DefaultPickerStyle())
+                .pickerStyle(SegmentedPickerStyle())
                 .scaledToFit()
                 .scaleEffect(CGSize(width: 1.2, height: 1.2))
                 .padding(20)
@@ -96,6 +98,7 @@ struct PersonalityView: View {
                     }
                     
                     Button(action: {
+                        
                         isCall.toggle()
                         switch(emotions[selectedEmotions]){
                             case "☺️": 
@@ -148,6 +151,7 @@ struct PersonalityView: View {
             return Color.pink400
         }
     }
+    
     
 }
 
