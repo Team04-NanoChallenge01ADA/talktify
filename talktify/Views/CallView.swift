@@ -7,21 +7,26 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 import AVFAudio
 
 struct CallView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var callTimer: Int = 0
     @State private var isMicrophoneMuted: Bool = false;
     @State private var isLoudSpeaker: Bool = true;
 
-    @State private var isProcessing: Bool = false;
+    @State private var isLoading: Bool = false;
     @State private var audioPlayer: AVAudioPlayer?
-
 
     @State private var previousRecognizedText: String = ""
     @ObservedObject private var speechRecognition = SpeechRecognition()
     @ObservedObject private var apiController: OpenAICaller = OpenAICaller()
+    
+    @State var ttsUtils: TextToSpeechUtils?
 
+    
     var body: some View {
         GeometryReader{geometry in
             ZStack{
@@ -56,17 +61,21 @@ struct CallView: View {
                         activeBackground: .white,
                         inactiveBackground: .black.opacity(0.3))
                     
+                    
                     CallButtonComponent(
                         action: {
-                            VoiceController(audioPlayer: $audioPlayer).speechToText(
-                                text: "Indonesia banget ga sih"
-                            )
+//                            ttsUtils!.send(
+//                                text: "Indonesia banget ga sih"
+//                            )
+                            endCallVibrate()
+                            self.presentationMode.wrappedValue.dismiss()
                         },
                         isActive: true,
                         activeIcon: "phone.down.fill",
                         inActiveIcon: "",
                         activeBackground: .white,
                         inactiveBackground: .white)
+
                     
                     CallButtonComponent(
                         action: {
@@ -86,38 +95,56 @@ struct CallView: View {
                 height: geometry.size.height)
         }.background(backgroundColor())
             .onAppear(){
+                ttsUtils = TextToSpeechUtils(){
+                    speechRecognition.start()
+                }
+                
                 apiController.send(text: AIModel.sharedInstance().initialPrompt()) { response in
-                    print(response)
                     DispatchQueue.main.async {
-                        print(response)
-                        VoiceController(audioPlayer: $audioPlayer)
-                            .speechToText(text: response)
-                        speechRecognition.start()
-                        isProcessing = false
-                    }
-                }
-                
-                Timer.scheduledTimer(withTimeInterval: 1, repeats: true){time in
-                    callTimer += 1
-                }
-                
-                Timer.scheduledTimer(withTimeInterval: 3, repeats: true){time in
-                    print(isProcessing)
-                    if speechRecognition.recognizedText == previousRecognizedText && !isProcessing && speechRecognition.recognizedText != "" {
-                        
-                        isProcessing = true
-                        apiController.send(text: speechRecognition.recognizedText!){ response in
-                            DispatchQueue.main.async {
-                                VoiceController(audioPlayer: $audioPlayer)
-                                    .speechToText(text: response)
-                                speechRecognition.recognizedText = ""
-                                isProcessing = false
-                            }
+                        ttsUtils!.send(text: response){
+                            speechRecognition.start()
                         }
+                        isLoading = false
                     }
-                    previousRecognizedText = speechRecognition.recognizedText ?? ""
                 }
+                
+                initializeTimer()
             }.navigationBarBackButtonHidden()
+    }
+    
+    func initializeTimer() {
+        // Stopwatch Interval
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true){time in
+            callTimer += 1
+        }
+        
+        // API Call Interval
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: true){time in
+            // Validating someone is stop talking
+            if speechRecognition.recognizedText == previousRecognizedText && !isLoading && speechRecognition.recognizedText != "" {
+                isLoading = true
+                speechRecognition.stop()
+                
+                // API Controller
+                apiController.send(text: speechRecognition.recognizedText!){ response in
+                    DispatchQueue.main.async {
+                        ttsUtils!.send(text: response)
+                        
+                        speechRecognition.recognizedText = ""
+                        previousRecognizedText = ""
+                        
+                        isLoading = false
+                    }
+                }
+            }
+            previousRecognizedText = speechRecognition.recognizedText ?? ""
+        }
+    }
+    
+    
+    func endCallVibrate(){
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
     
     func backgroundColor() -> Color {

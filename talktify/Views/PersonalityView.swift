@@ -33,9 +33,10 @@ struct PersonalityView: View {
 
     var body: some View {
         NavigationStack {
-            Spacer().frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+            Spacer().frame(height: 50)
             
             VStack {
+
                 Picker("Emotions?", selection: $selectedEmotions) {
                     ForEach(0..<emotions.count, id: \.self) { index in
                         Text(emotions[index])
@@ -46,6 +47,20 @@ struct PersonalityView: View {
                 .scaledToFit()
                 .scaleEffect(CGSize(width: 1.2, height: 1.2))
                 .padding(20)
+                
+                Spacer().frame(height: 50)
+                
+                Picker("Languages?", selection: $selectedLanguage) {
+                    ForEach(0..<languages.count, id: \.self) { language in
+                        Text(languages[language])
+                            .tag(language)
+                    }
+                }
+                .pickerStyle(WheelPickerStyle())
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 100)
+                .background(.white)
+                .cornerRadius(5)
+                .accentColor(Color(UIColor.secondarySystemBackground))
                 
                 Spacer().frame(height: 50)
                 
@@ -70,18 +85,8 @@ struct PersonalityView: View {
                         
                     }
                 }
-                Spacer().frame(height: 50)
-                Picker("Languages?", selection: $selectedLanguage) {
-                    ForEach(0..<languages.count, id: \.self) { language in
-                        Text(languages[language])
-                            .tag(language)
-                    }
-                }
-                .pickerStyle(WheelPickerStyle())
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 100)
-                .background(Color(UIColor.secondarySystemBackground))
-                .cornerRadius(5)
-                .accentColor(.gray)
+                
+
                 
                 Spacer()
                 //Text("Emotions = \(selectedEmotions) \n Interest = \(selectedInterest)")
@@ -110,6 +115,21 @@ struct PersonalityView: View {
                         }
                        
                         AIModel.sharedInstance().interest = AIInterestEnum(rawValue: interest[selectedInterest].value)
+                        
+                        switch(languages[selectedLanguage]){
+                            case "🇺🇸":
+                            AIModel.sharedInstance().language = AILanguageEnum.english
+                            break
+                            case "🇮🇩":
+                            AIModel.sharedInstance().language = AILanguageEnum.indonesian
+                            break
+                            case "🇨🇳":
+                            AIModel.sharedInstance().language = AILanguageEnum.mandarin
+                            break
+                            default:
+                                break
+                        }
+                        
                     }) {
                         Image(systemName: "phone.fill")
                             .font(.system(size: 40).bold())
