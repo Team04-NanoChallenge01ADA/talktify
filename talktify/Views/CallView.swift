@@ -25,6 +25,8 @@ struct CallView: View {
     @ObservedObject private var apiController: OpenAICaller = OpenAICaller()
     
     @State var ttsUtils: TextToSpeechUtils?
+    
+    @State private var player: AVAudioPlayer!
 
     
     var body: some View {
@@ -67,6 +69,7 @@ struct CallView: View {
 //                            ttsUtils!.send(
 //                                text: "Indonesia banget ga sih"
 //                            )
+                            self.playEndCallEffect()
                             endCallVibrate()
                             self.presentationMode.wrappedValue.dismiss()
                         },
@@ -166,6 +169,21 @@ struct CallView: View {
             }
         }
         return Color.white
+    }
+    
+    func playEndCallEffect(){
+        let url = Bundle.main.url(forResource: "facetimeHangUp", withExtension: "mp3")
+        
+        guard url != nil else {
+            return
+        }
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url!)
+            player.play()
+        } catch {
+            print("Can't play sound effect")
+        }
     }
 }
 
