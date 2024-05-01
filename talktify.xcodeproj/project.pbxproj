@@ -491,7 +491,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
-				DEVELOPMENT_TEAM = ZSHV98B7GC;
+				DEVELOPMENT_TEAM = DP3K3GBL6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want to hear you :D";
@@ -522,7 +522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"talktify/Preview Content\"";
-				DEVELOPMENT_TEAM = ZSHV98B7GC;
+				DEVELOPMENT_TEAM = DP3K3GBL6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want to hear you :D";

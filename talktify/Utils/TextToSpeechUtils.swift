@@ -13,12 +13,15 @@ import SwiftUI
 class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
     var audioPlayer: AVAudioPlayer?
     var speakCompletion: (()->Void)?
+    var speakBegin: (()->Void)?
     
-    init(speakCompletion: (() -> Void)? = nil) {
-        self.speakCompletion = speakCompletion
+    init(completion: (() -> Void)? = nil, begin:(()->Void)? = nil) {
+        self.speakCompletion = completion
+        self.speakBegin = begin
     }
 
     func send(voiceId: String = AIModel.sharedInstance().voicesChange(), text: String, completion: (()->Void)? = nil){
+        speakBegin!()
         audioPlayer?.delegate = self
         
         print("VOICE KEY = \(voiceId)")
@@ -26,11 +29,14 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
             print("Invalid URL")
             return
         }
-
+        
+        var model = "eleven_multilingual_v2"
+        if(AIModel.sharedInstance().language!.rawValue == "Bahasa inggris"){model = "eleven_turbo_v2"}
+        
         var request = URLRequest(url: url)
         let parameters = [
 //            "model_id": "eleven_turbo_v2", // EN-Only
-            "model_id": "eleven_multilingual_v2", // Any Language
+            "model_id": model, // Any Language
             "text": text
         ]
         do {
