@@ -55,7 +55,14 @@ struct CallView: View {
                 HStack(spacing: 30){
                     CallButtonComponent(
                         action: {
-                            isMicrophoneMuted.toggle()
+                            if(!isLoading && isMicrophoneMuted){
+                                isMicrophoneMuted.toggle()
+                                speechRecognition.start()
+                            }
+                            else if(!isLoading && !isMicrophoneMuted){
+                                isMicrophoneMuted.toggle()
+                                speechRecognition.stop()
+                            }
                         },
                         isActive: isMicrophoneMuted,
                         activeIcon: "mic.slash.fill",
@@ -98,16 +105,19 @@ struct CallView: View {
                 height: geometry.size.height)
         }.background(backgroundColor())
             .onAppear(){
-                ttsUtils = TextToSpeechUtils(){
+                ttsUtils = TextToSpeechUtils(begin: {
+                    isMicrophoneMuted = false
+                    speechRecognition.stop()
+                    isLoading = true
+                },completion: {
+                    isMicrophoneMuted = true
                     speechRecognition.start()
-                }
+                    isLoading = false
+                })
                 
                 apiController.send(text: AIModel.sharedInstance().initialPrompt()) { response in
                     DispatchQueue.main.async {
-                        ttsUtils!.send(text: response){
-                            speechRecognition.start()
-                        }
-                        isLoading = false
+                        ttsUtils!.send(text: response)
                     }
                 }
                 
@@ -125,18 +135,13 @@ struct CallView: View {
         Timer.scheduledTimer(withTimeInterval: 3, repeats: true){time in
             // Validating someone is stop talking
             if speechRecognition.recognizedText == previousRecognizedText && !isLoading && speechRecognition.recognizedText != "" {
-                isLoading = true
-                speechRecognition.stop()
                 
                 // API Controller
                 apiController.send(text: speechRecognition.recognizedText!){ response in
                     DispatchQueue.main.async {
                         ttsUtils!.send(text: response)
-                        
                         speechRecognition.recognizedText = ""
                         previousRecognizedText = ""
-                        
-                        isLoading = false
                     }
                 }
             }

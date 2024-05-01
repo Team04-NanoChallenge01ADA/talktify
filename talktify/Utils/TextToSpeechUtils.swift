@@ -13,12 +13,15 @@ import SwiftUI
 class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
     var audioPlayer: AVAudioPlayer?
     var speakCompletion: (()->Void)?
+    var speakBegin: (()->Void)?
     
-    init(speakCompletion: (() -> Void)? = nil) {
-        self.speakCompletion = speakCompletion
+    init(begin:(()->Void)? = nil,completion: (() -> Void)? = nil) {
+        self.speakCompletion = completion
+        self.speakBegin = begin
     }
 
     func send(voiceId: String = AIModel.sharedInstance().voicesChange(), text: String, completion: (()->Void)? = nil){
+        speakBegin!()
         audioPlayer?.delegate = self
         
         print("VOICE KEY = \(voiceId)")
