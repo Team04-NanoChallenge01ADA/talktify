@@ -26,11 +26,14 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
             print("Invalid URL")
             return
         }
-
+        
+        var model = "eleven_multilingual_v2"
+        if(AIModel.sharedInstance().language!.rawValue == "Bahasa inggris"){model = "eleven_turbo_v2"}
+        
         var request = URLRequest(url: url)
         let parameters = [
 //            "model_id": "eleven_turbo_v2", // EN-Only
-            "model_id": "eleven_multilingual_v2", // Any Language
+            "model_id": model, // Any Language
             "text": text
         ]
         do {
