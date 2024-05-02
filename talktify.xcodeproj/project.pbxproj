@@ -25,6 +25,7 @@
 		EF18D94A2BDF882E005E2670 /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */; };
 		EF6BF7E72BE14CAF00E58EDE /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BF7E62BE14CAF00E58EDE /* constants.swift */; };
 		EF6BF7E92BE1500600E58EDE /* TextToSpeechUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BF7E82BE1500600E58EDE /* TextToSpeechUtils.swift */; };
+		EFBDA4A72BE369C500218696 /* SoundWaveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDA4A62BE369C500218696 /* SoundWaveComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		EF18D9492BDF882E005E2670 /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 		EF6BF7E62BE14CAF00E58EDE /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		EF6BF7E82BE1500600E58EDE /* TextToSpeechUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechUtils.swift; sourceTree = "<group>"; };
+		EFBDA4A62BE369C500218696 /* SoundWaveComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundWaveComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		EF18D9442BDF6B20005E2670 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				EFBDA4A62BE369C500218696 /* SoundWaveComponent.swift */,
 				EF18D9412BDF6AFE005E2670 /* CallButtonComponent.swift */,
 			);
 			path = Component;
@@ -341,6 +344,7 @@
 				460C10D32BDFAC83000AFF12 /* AIModel.swift in Sources */,
 				EF6BF7E92BE1500600E58EDE /* TextToSpeechUtils.swift in Sources */,
 				EF18D93B2BDF6956005E2670 /* CallView.swift in Sources */,
+				EFBDA4A72BE369C500218696 /* SoundWaveComponent.swift in Sources */,
 				EF6BF7E72BE14CAF00E58EDE /* constants.swift in Sources */,
 				D94B57042BDFFF60003FFA6E /* OpenAICaller.swift in Sources */,
 				EF18D9422BDF6AFE005E2670 /* CallButtonComponent.swift in Sources */,

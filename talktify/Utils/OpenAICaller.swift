@@ -3,9 +3,9 @@ import SwiftUI
 final class OpenAICaller: ObservableObject {
     
     //let apiKey = "sk-proj-veQX3jLtw6iZ4muej129T3BlbkFJK3dDhr957FvJW7GueL5O" // $4.99
-    //let apiKey = "sk-proj-HTqDSyks1ta9ePIPCKe3T3BlbkFJJouJqtk2US4zUs9IyJyh" // $4.99
+    let apiKey = "sk-proj-HTqDSyks1ta9ePIPCKe3T3BlbkFJJouJqtk2US4zUs9IyJyh" // $4.99
 
-    private let apiKey: String = "sk-proj-veQX3jLtw6iZ4muej129T3BlbkFJK3dDhr957FvJW7GueL5O"
+//    private let apiKey: String = "sk-proj-veQX3jLtw6iZ4muej129T3BlbkFJK3dDhr957FvJW7GueL5O"
     private let baseURL = URL(string: "https://api.openai.com/v1/")!
     
     static var historyMessage: Array<[String:String]> = []
@@ -46,7 +46,6 @@ final class OpenAICaller: ObservableObject {
                 return
             }
             
-            print(response)
             print(data)
             if let decodedResponse = try? JSONDecoder().decode(CompletionResponse.self, from: data) {
                 print(decodedResponse)

@@ -47,11 +47,16 @@ struct CallView: View {
                     }
                 }.offset(CGSize(width: 0, height: -100))
                 
-                Text(speechRecognition.recognizedText ?? "-").offset(CGSize(width: 0, height: 100))
-                
-                Text(previousRecognizedText == speechRecognition.recognizedText ? "SAME" : "NOT SAME").offset(CGSize(width: 0, height: 75))
-                
-                
+                if isLoading{
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .padding()
+                        .offset(CGSize(width: 0, height: 125))
+                }else{
+                    SoundWaveComponent()
+                        .offset(CGSize(width: 0, height: 125))
+                }
+
                 HStack(spacing: 30){
                     CallButtonComponent(
                         action: {
@@ -107,6 +112,7 @@ struct CallView: View {
                 height: geometry.size.height)
         }.background(backgroundColor())
             .onAppear(){
+                isLoading = true
                 isMicrophoneMuted = true
                 speechRecognition.stop()
 
@@ -115,7 +121,7 @@ struct CallView: View {
                     print("Complete-Mic-Off")
                     isMicrophoneMuted = true
                     speechRecognition.stop()
-                    isLoading = true
+                    isLoading = false
                 },completion: {
                     print("Complete-Mic-On")
                     isMicrophoneMuted = false
@@ -143,6 +149,8 @@ struct CallView: View {
         Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true){time in
             // Validating someone is stop talking
             if speechRecognition.recognizedText == previousRecognizedText && !isLoading && speechRecognition.recognizedText != "" {
+                isLoading = true
+                isMicrophoneMuted = true
                 
                 // API Controller
                 apiController.send(text: speechRecognition.recognizedText!){ response in

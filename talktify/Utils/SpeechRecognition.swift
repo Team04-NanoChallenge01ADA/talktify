@@ -19,15 +19,26 @@ final class SpeechRecognition: NSObject, ObservableObject, SFSpeechRecognizerDel
     @Published var recognizedText: String?
     @Published var isProcessing: Bool = false
 
-    func start() {
-        audioSession = AVAudioSession.sharedInstance()
+    init(inputNode: AVAudioInputNode? = nil, speechRecognizer: SFSpeechRecognizer? = nil, recognitionRequest: SFSpeechAudioBufferRecognitionRequest? = nil, recognitionTask: SFSpeechRecognitionTask? = nil, audioSession: AVAudioSession? = nil, recognizedText: String? = nil, isProcessing: Bool = false) {
+        self.inputNode = inputNode
+        self.speechRecognizer = speechRecognizer
+        self.recognitionRequest = recognitionRequest
+        self.recognitionTask = recognitionTask
+        self.audioSession = audioSession
+        self.recognizedText = recognizedText
+        self.isProcessing = isProcessing
+    
+        self.audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession?.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
             try audioSession?.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             print("Couldn't configure the audio session properly")
         }
-        
+    
+    }
+    
+    func start() {
         inputNode = audioEngine.inputNode
         
         var speechLanguage = "id-ID"
@@ -80,9 +91,8 @@ final class SpeechRecognition: NSObject, ObservableObject, SFSpeechRecognizerDel
         recognitionTask?.cancel()
         
         audioEngine.stop()
-        
         inputNode?.removeTap(onBus: 0)
-        try? audioSession?.setActive(false)
+//        try? audioSession?.setActive(false)
         audioSession = nil
         inputNode = nil
         
@@ -101,5 +111,5 @@ final class SpeechRecognition: NSObject, ObservableObject, SFSpeechRecognizerDel
             recognizedText = "Text recognition unavailable. Sorry!"
             stop()
         }
-    }
+     }
 }
