@@ -47,9 +47,9 @@ struct CallView: View {
                     }
                 }.offset(CGSize(width: 0, height: -100))
                 
-                //Text(speechRecognition.recognizedText ?? "-").offset(CGSize(width: 0, height: 100))
+                Text(speechRecognition.recognizedText ?? "-").offset(CGSize(width: 0, height: 100))
                 
-                //Text(previousRecognizedText == speechRecognition.recognizedText ? "SAME" : "NOT SAME").offset(CGSize(width: 0, height: 75))
+                Text(previousRecognizedText == speechRecognition.recognizedText ? "SAME" : "NOT SAME").offset(CGSize(width: 0, height: 75))
                 
                 
                 HStack(spacing: 30){
@@ -112,10 +112,12 @@ struct CallView: View {
 
                 self.playAnswerEffect()
                 ttsUtils = TextToSpeechUtils(begin: {
+                    print("Complete-Mic-Off")
                     isMicrophoneMuted = true
                     speechRecognition.stop()
                     isLoading = true
                 },completion: {
+                    print("Complete-Mic-On")
                     isMicrophoneMuted = false
                     speechRecognition.start()
                     isLoading = false
@@ -138,7 +140,7 @@ struct CallView: View {
         }
         
         // API Call Interval
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: true){time in
+        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true){time in
             // Validating someone is stop talking
             if speechRecognition.recognizedText == previousRecognizedText && !isLoading && speechRecognition.recognizedText != "" {
                 
@@ -146,6 +148,7 @@ struct CallView: View {
                 apiController.send(text: speechRecognition.recognizedText!){ response in
                     DispatchQueue.main.async {
                         ttsUtils!.send(text: response)
+                        
                         speechRecognition.recognizedText = ""
                         previousRecognizedText = ""
                     }

@@ -20,9 +20,8 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
         self.speakBegin = begin
     }
 
-    func send(voiceId: String = AIModel.sharedInstance().voicesChange(), text: String, completion: (()->Void)? = nil){
-        speakBegin!()
-        audioPlayer?.delegate = self
+    func send(voiceId: String = AIModel.sharedInstance().voicesChange(), text: String){
+        speakBegin?()
         
         print("VOICE KEY = \(voiceId)")
         guard let url = URL(string: "\(TTS_BASE_URL)\(voiceId)") else {
@@ -35,7 +34,6 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
         
         var request = URLRequest(url: url)
         let parameters = [
-//            "model_id": "eleven_turbo_v2", // EN-Only
             "model_id": model, // Any Language
             "text": text
         ]
@@ -49,7 +47,8 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(TTS_API_KEY, forHTTPHeaderField: "xi-api-key")
         print(model)
-        let task = URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let self = self else {return}
             
             if let error = error {
                 print("Error:", error)
@@ -61,7 +60,7 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
                 return
             }
             
-            print("Talk Session...")
+            print("Talk")
             self.playAudio(data: data)
         }
         task.resume()
@@ -69,18 +68,21 @@ class TextToSpeechUtils : NSObject, AVAudioPlayerDelegate{
 
     func playAudio(data: Data) {
         do {
+            print("Audio Talk")
             audioPlayer = try AVAudioPlayer(data: data)
             audioPlayer?.delegate = self
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
+            print("Test")
         } catch {
             print("Failed to play audio:", error.localizedDescription)
+            speakCompletion?()
         }
     }
 
     // AVAudioPlayerDelegate method
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         print("Audio Finished")
-        speakCompletion!()
+        speakCompletion?()
     }
 }
