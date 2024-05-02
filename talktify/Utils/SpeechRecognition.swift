@@ -22,7 +22,7 @@ final class SpeechRecognition: NSObject, ObservableObject, SFSpeechRecognizerDel
     func start() {
         audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession?.setCategory(.record, mode: .measurement, options: .duckOthers)
+            try audioSession?.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
             try audioSession?.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             print("Couldn't configure the audio session properly")
